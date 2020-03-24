@@ -10,7 +10,7 @@ import Foundation
 import SwiftUI
 
 struct AmuletFont {
-
+	static var defaultFont: (CGFloat) -> Font = { Font.system(size: $0) }
 }
 
 struct AmuletColors {

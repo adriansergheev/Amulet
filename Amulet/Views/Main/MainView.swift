@@ -68,7 +68,10 @@ struct MainView: View {
 					.buttonStyle(NeumorphicButtonStyle.init(colorScheme: .light))
 					.offset(x: -16, y: 0)
 			}
-			.sheet(isPresented: $isSettingsModalPresented) { SettingsView() }
+			.sheet(isPresented: $isSettingsModalPresented) {
+				SettingsView()
+					.environment(\.modalModeSettings, self.$isSettingsModalPresented)
+			}
 			Spacer()
 		}
 		.offset(x: 0, y: 40)
@@ -77,7 +80,7 @@ struct MainView: View {
 	func main() -> some View {
 		VStack(spacing: 32) {
 			Text("Today's charm")
-				.font(.system(size: 36))
+				.font(AmuletFont.defaultFont(36))
 				.italic()
 				.foregroundColor(.white)
 				.multilineTextAlignment(.center)
@@ -86,11 +89,8 @@ struct MainView: View {
 					Animation.spring().speed(0.1).repeatForever(autoreverses: true)
 			)
 
-			Text(
-				"""
-		Speaking of rituals. Try and create one for your shower or your bath. A ritual of looking after you. It's comforting to have a series of careful steps and actions that you know you're going to take every morning, where each one makes a difference to your personal care. ✨
-		"""
-			)
+			Text(demoCharmsText.randomElement() ?? "")
+				.lineLimit(nil)
 				.foregroundColor(.white)
 				.padding(16)
 				.multilineTextAlignment(.center)

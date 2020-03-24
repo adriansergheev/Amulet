@@ -14,7 +14,7 @@ struct DetailView: View {
 	@Environment (\.modalModeDetail) var modalMode
 
 	// gradient
-	@State var gradient = [Color.pink, Color.purple, Color.white]
+	@State var gradient = [Color.white, Color.pink, Color.purple]
 	@State var startPoint = UnitPoint(x: 0, y: 0)
 	@State var endPoint = UnitPoint(x: 0, y: 2)
 
@@ -22,30 +22,21 @@ struct DetailView: View {
 		ZStack {
 			LinearGradient(gradient: Gradient(colors: self.gradient),
 						   startPoint: self.startPoint, endPoint: self.endPoint)
-				.overlay(
-					ZStack {
-						header()
-					}
-			)
+			//				.onAppear {
+			//					withAnimation(Animation.easeInOut(duration: 6).repeatForever(autoreverses: true)) {
+			//
+			//						self.startPoint = UnitPoint(x: 1, y: -1)
+			//						self.endPoint = UnitPoint(x: 0, y: 1)
+			//					}
+			//			}
+
+			button()
 			main()
 		}
 		.edgesIgnoringSafeArea(.all)
-		//		.onAppear {
-		//			withAnimation(Animation.easeInOut(duration: 6).repeatForever(autoreverses: true)) {
-		//
-		//				self.startPoint = UnitPoint(x: 1, y: -1)
-		//				self.endPoint = UnitPoint(x: 0, y: 1)
-		//			}
-		//		}
-		//		.onTapGesture {
-		//			withAnimation (.easeInOut(duration: 3)){
-		//						self.startPoint = UnitPoint(x: 1, y: -1)
-		//						self.endPoint = UnitPoint(x: 0, y: 1)
-		//			}
-		//		}
 	}
 
-	func header() -> some View {
+	func button() -> some View {
 		VStack {
 			HStack {
 				Spacer()
@@ -64,35 +55,32 @@ struct DetailView: View {
 
 	func main() -> some View {
 
-		VStack(alignment: .leading, spacing: 16) {
+		VStack(alignment: .leading, spacing: 32) {
 
-			Spacer()
+			Spacer(minLength: 60)
 
 			Text("It's so lovely to\nsee you here.")
 				.foregroundColor(Color.black)
-				.font(Font.system(size: 50))
+				.font(AmuletFont.defaultFont(50))
 				.italic()
 
-			//			Text("Every day, at the time chosen by you \n a new dose of charm will arrive.\n Stay tuned!")
-			Text("Here you can see your previous charms")
+			Text("Here you can see your previous charms:")
 				.foregroundColor(.black)
+
+			//List(demoCharms) { charm in
+			//	CellView(charmText: charm.text)
+			//}
 
 			ScrollView(.vertical, showsIndicators: false) {
 				VStack(spacing: 16) {
-
 					ForEach(demoCharms) { charm in
-						CellView(charmText: charm.text)
+						DetailCellView(charmText: charm.text)
 					}
-
-//					ForEach((1...10).reversed(), id: \.self) {
-//						CellView(id: $0)
-//					}
-				}.padding(16)
+				}
+				.padding(16)
 			}
-			.offset(x: 0, y: 32)
 		}
 		.padding(16)
-		.offset(x: 0, y: 60)
 	}
 }
 
@@ -102,35 +90,21 @@ struct DetailView_Previews: PreviewProvider {
 	}
 }
 
-struct Charm: Identifiable {
-	var id: Int
-	var text: String
-}
-
-private let demoCharmsText: [String] = [
-	"Don't keep texting people who don't want to text you back.You deserve so much more than that.",
-	"Try to take one action tonight that will make tomorrow morning just a little easier.",
-	"Accept that today won't be perfect. And that's ok.",
-	"Slow down. The world can begin and end on your freaking temrs today!",
-	"Set a goal for this week. Just one!",
-	"Remember that you're human and you're allowed to forget, and you'll remember tomorrow.",
-	"Today, give yourself permission to cancel one thing that's just too much. You don't have to do everything.",
-	"Things have been piling up and you might need a bit more sleep. Pick a night, and get to sleep early!",
-	"Put on the right song and allow yourself to drift away.",
-	"Give somebody you love a small gift. Nothing special, just a small gift."
-]
-
-let demoCharms: [Charm] = demoCharmsText.enumerated().map { Charm(id: $0, text: $1)}
-
-struct CellView: View {
+struct DetailCellView: View {
 
 	let charmText: String
 
 	var body: some View {
 
-		VStack {
+		VStack(alignment: .leading, spacing: 4) {
 			Text(charmText)
 				.foregroundColor(.black)
+				.lineLimit(nil)
+				.frame(minHeight: 40, alignment: .leading)
+
+			Text("24 March 2019")
+				.font(AmuletFont.defaultFont(12))
+
 			Divider()
 				.background(Color.black)
 				.frame(height: 2)
