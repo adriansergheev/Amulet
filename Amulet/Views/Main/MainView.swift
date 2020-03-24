@@ -44,12 +44,6 @@ struct MainView: View {
 				self.textAnimationScale += 0.05
 			}
 		}
-		//		.onTapGesture {
-		//			withAnimation (.easeInOut(duration: 3)){
-		//				self.startPoint = UnitPoint(x: 1, y: -1)
-		//				self.endPoint = UnitPoint(x: 0, y: 1)
-		//			}
-		//		}
 	}
 
 	func header() -> some View {
@@ -99,6 +93,7 @@ struct MainView: View {
 					Animation.spring().speed(0.1).repeatForever(autoreverses: true)
 			)
 		}
+		.animation(nil)
 	}
 
 	func footer() -> some View {
