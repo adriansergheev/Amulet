@@ -1,0 +1,16 @@
+PODS:
+  - CombineExt (1.0.0)
+
+DEPENDENCIES:
+  - CombineExt
+
+SPEC REPOS:
+  trunk:
+    - CombineExt
+
+SPEC CHECKSUMS:
+  CombineExt: 6291cbcc22777424fce78fa9cd3f920b019ab461
+
+PODFILE CHECKSUM: 7d38b8df16f6efa5ed65979035df79b6562adc94
+
+COCOAPODS: 1.8.4

@@ -8,6 +8,8 @@
 
 import SwiftUI
 
+private var settingsMock: [Charm] = (0...8).map { Charm(id: $0, text: "Setting: \($0)", date: nil)}
+
 struct SettingsView: View {
 
 	//injected modal reference
@@ -73,7 +75,7 @@ struct SettingsView: View {
 				VStack(alignment: .leading) {
 
 					VStack(spacing: 16) {
-						ForEach(settingsMock) { setting in
+						ForEach(settingsMock, id: \.id) { setting in
 							SettingCellView(text: setting.text)
 						}
 					}
@@ -104,8 +106,6 @@ struct SettingsView_Previews: PreviewProvider {
 		SettingsView()
 	}
 }
-
-var settingsMock: [Charm] = (0...8).map { Charm(id: $0, text: "Setting: \($0)")}
 
 struct SettingCellView: View {
 

@@ -10,6 +10,9 @@ import SwiftUI
 
 struct DetailView: View {
 
+	@ObservedObject
+	var viewModel: DetailViewModel
+
 	//injected modal reference
 	@Environment (\.modalModeDetail) var modalMode
 
@@ -59,7 +62,7 @@ struct DetailView: View {
 
 			Spacer(minLength: 60)
 
-			Text("It's so lovely to\nsee you here.")
+			Text("It's so lovely to\nsee you.")
 				.foregroundColor(Color.black)
 				.font(AmuletFont.defaultFont(50))
 				.italic()
@@ -73,7 +76,7 @@ struct DetailView: View {
 
 			ScrollView(.vertical, showsIndicators: false) {
 				VStack(spacing: 16) {
-					ForEach(demoCharms) { charm in
+					ForEach(viewModel.charms, id: \.id) { charm in
 						DetailCellView(charmText: charm.text)
 					}
 				}
@@ -87,7 +90,7 @@ struct DetailView: View {
 
 struct DetailView_Previews: PreviewProvider {
 	static var previews: some View {
-		DetailView()
+		DetailView(viewModel: DetailViewModel(charms: MainViewModel().charms))
 	}
 }
 

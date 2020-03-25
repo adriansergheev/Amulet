@@ -10,6 +10,9 @@ import SwiftUI
 
 struct MainView: View {
 
+	@ObservedObject
+	var viewModel: MainViewModel
+
 	// gradient
 	@State var gradient = [Color.red, Color.purple, Color.orange]
 	@State var startPoint = UnitPoint(x: 0, y: 0)
@@ -41,7 +44,7 @@ struct MainView: View {
 				self.startPoint = UnitPoint(x: 1, y: -1)
 				self.endPoint = UnitPoint(x: 0, y: 1)
 
-				self.textAnimationScale += 0.05
+				self.textAnimationScale = 1.05
 			}
 		}
 	}
@@ -53,11 +56,9 @@ struct MainView: View {
 				Button(action: {
 					self.isSettingsModalPresented.toggle()
 				}, label: {
-					//					Text("More")
-					//					.foregroundColor(.black)
-
-					AmuletIcons
-						.settings
+					Image(systemName: "ellipsis.circle")
+						.resizable()
+						.frame(width: 20, height: 20, alignment: .center)
 				})
 					.buttonStyle(NeumorphicButtonStyle.init(colorScheme: .light))
 					.offset(x: -16, y: 0)
@@ -68,6 +69,7 @@ struct MainView: View {
 			}
 			Spacer()
 		}
+		.animation(nil)
 		.offset(x: 0, y: 40)
 	}
 
@@ -78,22 +80,15 @@ struct MainView: View {
 				.italic()
 				.foregroundColor(.white)
 				.multilineTextAlignment(.center)
-				.scaleEffect(textAnimationScale)
-				.animation(
-					Animation.spring().speed(0.1).repeatForever(autoreverses: true)
-			)
 
-			Text(demoCharmsText.randomElement() ?? "")
+			Text(viewModel.todaysCharm?.text ?? "")
 				.lineLimit(nil)
 				.foregroundColor(.white)
 				.padding(16)
 				.multilineTextAlignment(.center)
-				.scaleEffect(textAnimationScale)
-				.animation(
-					Animation.spring().speed(0.1).repeatForever(autoreverses: true)
-			)
+				.frame(minWidth: 120, alignment: .center)
 		}
-		.animation(nil)
+		.scaleEffect(textAnimationScale)
 	}
 
 	func footer() -> some View {
@@ -104,26 +99,26 @@ struct MainView: View {
 				Button(action: {
 					self.isDetailModalPrestented.toggle()
 				}, label: {
-					//					Text("Previous magic")
-					//						.foregroundColor(.black)
-					AmuletIcons
-						.more
+					Image(systemName: "heart")
+						.resizable()
+						.frame(width: 20, height: 20, alignment: .center)
 				})
 					.buttonStyle(NeumorphicButtonStyle.init(colorScheme: .light))
 					.padding(32)
 					.sheet(isPresented: $isDetailModalPrestented) {
-						DetailView()
+						DetailView(viewModel: DetailViewModel(charms: self.viewModel.charms))
 							.environment(\.modalModeDetail, self.$isDetailModalPrestented)
 				}
 				Spacer()
 			}
 		}
+		.animation(nil)
 	}
 
 }
 
 struct ContentView_Previews: PreviewProvider {
 	static var previews: some View {
-		MainView()
+		MainView(viewModel: MainViewModel())
 	}
 }

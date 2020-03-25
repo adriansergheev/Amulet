@@ -23,11 +23,11 @@ struct AmuletIcons {
 		.frame(width: 20, height: 20, alignment: .center)
 		.foregroundColor(.black)
 
-	static let more: some View = Image(systemName: "heart")
-		.resizable()
-		.frame(width: 20, height: 20, alignment: .center)
-
-	static let settings: some View = Image(systemName: "ellipsis.circle")
-		.resizable()
-		.frame(width: 20, height: 20, alignment: .center)
+	//	static let more: some View = Image(systemName: "heart")
+	//		.resizable()
+	//		.frame(width: 20, height: 20, alignment: .center)
+	//
+	//	static let settings: some View = Image(systemName: "ellipsis.circle")
+	//		.resizable()
+	//		.frame(width: 20, height: 20, alignment: .center)
 }
