@@ -38,7 +38,7 @@ enum AmuletAPI {
 
 	typealias Response = AnyPublisher<CharmResponse, AmuletError>
 
-	static func getItems(environment: NetworkEnvironment = .prod) -> Response {
+	static func getItems(environment: NetworkEnvironment = Current.networkEnvironment) -> Response {
 
 		let url = AmuletBaseURL.url.appendingPathComponent(".json/")
 		let apiReqQueue = DispatchQueue(label: "AmuletAPI", qos: .default, attributes: .concurrent)

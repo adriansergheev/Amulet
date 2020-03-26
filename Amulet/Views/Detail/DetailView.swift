@@ -70,14 +70,10 @@ struct DetailView: View {
 			Text("Here you can see your previous charms:")
 				.foregroundColor(.black)
 
-			//List(demoCharms) { charm in
-			//	CellView(charmText: charm.text)
-			//}
-
 			ScrollView(.vertical, showsIndicators: false) {
 				VStack(spacing: 16) {
 					ForEach(viewModel.charms, id: \.id) { charm in
-						DetailCellView(charmText: charm.text)
+						DetailCellView(charm: charm)
 					}
 				}
 				.padding(16)
@@ -96,17 +92,17 @@ struct DetailView_Previews: PreviewProvider {
 
 struct DetailCellView: View {
 
-	let charmText: String
+	let charm: Charm
 
 	var body: some View {
 
 		VStack(alignment: .leading, spacing: 4) {
-			Text(charmText)
+			Text(charm.text)
 				.foregroundColor(.black)
 				.lineLimit(nil)
 				.frame(minHeight: 40, alignment: .leading)
 
-			Text("24 March 2019")
+			Text(charm.dateFormatted ?? "")
 				.font(AmuletFont.defaultFont(12))
 
 			Divider()

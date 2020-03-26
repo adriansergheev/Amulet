@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		042691DD242CA8810005CFC0 /* Current.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042691DC242CA8810005CFC0 /* Current.swift */; };
 		044825E42428E99B008002AB /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044825E32428E99B008002AB /* DetailView.swift */; };
 		044825E62428EC91008002AB /* Environment+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044825E52428EC91008002AB /* Environment+Ext.swift */; };
 		0484527B2427731A00DBEEC1 /* AmuletConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0484527A2427731A00DBEEC1 /* AmuletConstants.swift */; };
@@ -18,7 +19,7 @@
 		0488E247242B5EA00028E62C /* AmuletMock.json in Resources */ = {isa = PBXBuildFile; fileRef = 0488E246242B5EA00028E62C /* AmuletMock.json */; };
 		0488E249242B988E0028E62C /* AmuletBaseURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0488E248242B988E0028E62C /* AmuletBaseURL.swift */; };
 		04A4B4F62428AA2700AD1660 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A4B4F52428AA2700AD1660 /* SettingsView.swift */; };
-		04B2C990242A50F6004749D3 /* SharedDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B2C98F242A50F6004749D3 /* SharedDate.swift */; };
+		04B2C990242A50F6004749D3 /* GlobalDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B2C98F242A50F6004749D3 /* GlobalDate.swift */; };
 		04E320A92427603E008D1104 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E320A82427603E008D1104 /* AppDelegate.swift */; };
 		04E320AB2427603E008D1104 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E320AA2427603E008D1104 /* SceneDelegate.swift */; };
 		04E320AD2427603E008D1104 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E320AC2427603E008D1104 /* MainView.swift */; };
@@ -102,6 +103,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		042691DC242CA8810005CFC0 /* Current.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Current.swift; sourceTree = "<group>"; };
 		044825E32428E99B008002AB /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		044825E52428EC91008002AB /* Environment+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Environment+Ext.swift"; sourceTree = "<group>"; };
 		0484527A2427731A00DBEEC1 /* AmuletConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmuletConstants.swift; sourceTree = "<group>"; };
@@ -113,7 +115,7 @@
 		0488E246242B5EA00028E62C /* AmuletMock.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = AmuletMock.json; sourceTree = "<group>"; };
 		0488E248242B988E0028E62C /* AmuletBaseURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmuletBaseURL.swift; sourceTree = "<group>"; };
 		04A4B4F52428AA2700AD1660 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
-		04B2C98F242A50F6004749D3 /* SharedDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedDate.swift; sourceTree = "<group>"; };
+		04B2C98F242A50F6004749D3 /* GlobalDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalDate.swift; sourceTree = "<group>"; };
 		04E320A52427603E008D1104 /* DailyCharm.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DailyCharm.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04E320A82427603E008D1104 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		04E320AA2427603E008D1104 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -258,7 +260,8 @@
 		04B2C98C242A50A6004749D3 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
-				04B2C98F242A50F6004749D3 /* SharedDate.swift */,
+				04B2C98F242A50F6004749D3 /* GlobalDate.swift */,
+				042691DC242CA8810005CFC0 /* Current.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -763,13 +766,14 @@
 				048452A02427E19800DBEEC1 /* NeumorphicButtonStyle.swift in Sources */,
 				044825E62428EC91008002AB /* Environment+Ext.swift in Sources */,
 				0488E243242B5ABF0028E62C /* Charm.swift in Sources */,
+				042691DD242CA8810005CFC0 /* Current.swift in Sources */,
 				0488E249242B988E0028E62C /* AmuletBaseURL.swift in Sources */,
 				04E320A92427603E008D1104 /* AppDelegate.swift in Sources */,
 				0488E241242B52A70028E62C /* AmuletAPI.swift in Sources */,
 				0484527B2427731A00DBEEC1 /* AmuletConstants.swift in Sources */,
 				0488E245242B5BBF0028E62C /* DetailViewModel.swift in Sources */,
 				04E320AB2427603E008D1104 /* SceneDelegate.swift in Sources */,
-				04B2C990242A50F6004749D3 /* SharedDate.swift in Sources */,
+				04B2C990242A50F6004749D3 /* GlobalDate.swift in Sources */,
 				04E320AD2427603E008D1104 /* MainView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -10,7 +10,7 @@ import Foundation
 import Combine
 import CombineExt
 
-private let demoCharms: [Charm] = demoCharmsText.enumerated().map { Charm(id: $0, text: $1, date: nil) }
+private let demoCharms: [Charm] = demoCharmsText.enumerated().map { Charm(id: $0, text: $1) }
 
 public let demoCharmsText: [String] = [
 	"Don't keep texting people who don't want to text you back. You deserve so much more than that.",
@@ -39,16 +39,25 @@ final class MainViewModel: ObservableObject {
 	init() {
 		let response =
 			AmuletAPI
-				.getItems(environment: .mock)
+				.getItems()
 				.map { $0.charm }
 				.replaceError(with: [])
 				.receive(on: DispatchQueue.main)
 				.share()
 
 		response
-			.map { $0.randomElement() }
-			.assign(to: \.todaysCharm, on: self)
-			.store(in: &subscriptions)
+			.map { charms in
+				charms.first(where: {
+					if let date = $0.date {
+						return isDateCurrentDate(date)
+					} else {
+						return false
+					}
+				})
+		}
+
+		.assign(to: \.todaysCharm, on: self)
+		.store(in: &subscriptions)
 
 		response
 			.assign(to: \.charms, on: self)

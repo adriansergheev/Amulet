@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-private var settingsMock: [Charm] = (0...8).map { Charm(id: $0, text: "Setting: \($0)", date: nil)}
+private var settingsMock: [Charm] = (0...8).map { Charm(id: $0, text: "Setting: \($0)")}
 
 struct SettingsView: View {
 
