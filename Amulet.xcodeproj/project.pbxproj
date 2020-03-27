@@ -10,6 +10,10 @@
 		042691DD242CA8810005CFC0 /* Current.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042691DC242CA8810005CFC0 /* Current.swift */; };
 		044825E42428E99B008002AB /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044825E32428E99B008002AB /* DetailView.swift */; };
 		044825E62428EC91008002AB /* Environment+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044825E52428EC91008002AB /* Environment+Ext.swift */; };
+		047E90D7242DEAEE00D7FAAE /* View+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047E90D6242DEAEE00D7FAAE /* View+Ext.swift */; };
+		047E90DA242DEE6100D7FAAE /* Feedback.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047E90D9242DEE6100D7FAAE /* Feedback.swift */; };
+		047E90DC242DEE8000D7FAAE /* System.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047E90DB242DEE8000D7FAAE /* System.swift */; };
+		047E90DE242DFEE000D7FAAE /* Spinner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047E90DD242DFEE000D7FAAE /* Spinner.swift */; };
 		0484527B2427731A00DBEEC1 /* AmuletConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0484527A2427731A00DBEEC1 /* AmuletConstants.swift */; };
 		0484527D2427D40800DBEEC1 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0484527C2427D40800DBEEC1 /* MainViewModel.swift */; };
 		048452A02427E19800DBEEC1 /* NeumorphicButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0484529F2427E19800DBEEC1 /* NeumorphicButtonStyle.swift */; };
@@ -106,6 +110,10 @@
 		042691DC242CA8810005CFC0 /* Current.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Current.swift; sourceTree = "<group>"; };
 		044825E32428E99B008002AB /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		044825E52428EC91008002AB /* Environment+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Environment+Ext.swift"; sourceTree = "<group>"; };
+		047E90D6242DEAEE00D7FAAE /* View+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Ext.swift"; sourceTree = "<group>"; };
+		047E90D9242DEE6100D7FAAE /* Feedback.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Feedback.swift; sourceTree = "<group>"; };
+		047E90DB242DEE8000D7FAAE /* System.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = System.swift; sourceTree = "<group>"; };
+		047E90DD242DFEE000D7FAAE /* Spinner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Spinner.swift; sourceTree = "<group>"; };
 		0484527A2427731A00DBEEC1 /* AmuletConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmuletConstants.swift; sourceTree = "<group>"; };
 		0484527C2427D40800DBEEC1 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		0484529F2427E19800DBEEC1 /* NeumorphicButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NeumorphicButtonStyle.swift; sourceTree = "<group>"; };
@@ -205,6 +213,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0424AB3B242DE22700497340 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				04E320A82427603E008D1104 /* AppDelegate.swift */,
+				04E320AA2427603E008D1104 /* SceneDelegate.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		0424AB3C242DE23900497340 /* SupportingFiles */ = {
+			isa = PBXGroup;
+			children = (
+				04E320B624276042008D1104 /* Info.plist */,
+				04E320AE24276042008D1104 /* Assets.xcassets */,
+				04E320B324276042008D1104 /* LaunchScreen.storyboard */,
+			);
+			path = SupportingFiles;
+			sourceTree = "<group>";
+		};
 		044825E22428E980008002AB /* Detail */ = {
 			isa = PBXGroup;
 			children = (
@@ -214,12 +241,30 @@
 			path = Detail;
 			sourceTree = "<group>";
 		};
-		0484529E2427E18500DBEEC1 /* Ext */ = {
+		047E90D5242DEAD300D7FAAE /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				047E90D6242DEAEE00D7FAAE /* View+Ext.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		047E90D8242DEE4B00D7FAAE /* Feedback */ = {
+			isa = PBXGroup;
+			children = (
+				047E90D9242DEE6100D7FAAE /* Feedback.swift */,
+				047E90DB242DEE8000D7FAAE /* System.swift */,
+			);
+			path = Feedback;
+			sourceTree = "<group>";
+		};
+		0484529E2427E18500DBEEC1 /* Misc */ = {
 			isa = PBXGroup;
 			children = (
 				0484529F2427E19800DBEEC1 /* NeumorphicButtonStyle.swift */,
+				047E90DD242DFEE000D7FAAE /* Spinner.swift */,
 			);
-			path = Ext;
+			path = Misc;
 			sourceTree = "<group>";
 		};
 		0488E23F242B52930028E62C /* Network */ = {
@@ -260,6 +305,7 @@
 		04B2C98C242A50A6004749D3 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				0484527A2427731A00DBEEC1 /* AmuletConstants.swift */,
 				04B2C98F242A50F6004749D3 /* GlobalDate.swift */,
 				042691DC242CA8810005CFC0 /* Current.swift */,
 			);
@@ -295,16 +341,14 @@
 		04E320A72427603E008D1104 /* Amulet */ = {
 			isa = PBXGroup;
 			children = (
-				0488E23F242B52930028E62C /* Network */,
-				04B2C98C242A50A6004749D3 /* Shared */,
-				04E320B624276042008D1104 /* Info.plist */,
-				0484527A2427731A00DBEEC1 /* AmuletConstants.swift */,
-				04E320A82427603E008D1104 /* AppDelegate.swift */,
-				04E320AA2427603E008D1104 /* SceneDelegate.swift */,
-				04E320AE24276042008D1104 /* Assets.xcassets */,
-				04E320B324276042008D1104 /* LaunchScreen.storyboard */,
+				0424AB3B242DE22700497340 /* App */,
+				047E90D5242DEAD300D7FAAE /* Extensions */,
+				047E90D8242DEE4B00D7FAAE /* Feedback */,
 				04B2C98B242A506D004749D3 /* Model */,
+				0488E23F242B52930028E62C /* Network */,
 				04E320B024276042008D1104 /* Preview Content */,
+				04B2C98C242A50A6004749D3 /* Shared */,
+				0424AB3C242DE23900497340 /* SupportingFiles */,
 				04E3210724276796008D1104 /* Views */,
 			);
 			path = Amulet;
@@ -374,7 +418,7 @@
 			isa = PBXGroup;
 			children = (
 				044825E22428E980008002AB /* Detail */,
-				0484529E2427E18500DBEEC1 /* Ext */,
+				0484529E2427E18500DBEEC1 /* Misc */,
 				04A4B4F32428A9FE00AD1660 /* Main */,
 				04A4B4F42428AA0800AD1660 /* Settings */,
 				044825E52428EC91008002AB /* Environment+Ext.swift */,
@@ -760,11 +804,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				047E90D7242DEAEE00D7FAAE /* View+Ext.swift in Sources */,
 				04A4B4F62428AA2700AD1660 /* SettingsView.swift in Sources */,
 				044825E42428E99B008002AB /* DetailView.swift in Sources */,
 				0484527D2427D40800DBEEC1 /* MainViewModel.swift in Sources */,
 				048452A02427E19800DBEEC1 /* NeumorphicButtonStyle.swift in Sources */,
+				047E90DA242DEE6100D7FAAE /* Feedback.swift in Sources */,
 				044825E62428EC91008002AB /* Environment+Ext.swift in Sources */,
+				047E90DE242DFEE000D7FAAE /* Spinner.swift in Sources */,
 				0488E243242B5ABF0028E62C /* Charm.swift in Sources */,
 				042691DD242CA8810005CFC0 /* Current.swift in Sources */,
 				0488E249242B988E0028E62C /* AmuletBaseURL.swift in Sources */,
@@ -774,6 +821,7 @@
 				0488E245242B5BBF0028E62C /* DetailViewModel.swift in Sources */,
 				04E320AB2427603E008D1104 /* SceneDelegate.swift in Sources */,
 				04B2C990242A50F6004749D3 /* GlobalDate.swift in Sources */,
+				047E90DC242DEE8000D7FAAE /* System.swift in Sources */,
 				04E320AD2427603E008D1104 /* MainView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1064,7 +1112,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"Amulet/Preview Content\"";
 				DEVELOPMENT_TEAM = SZ6SDPY725;
 				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = Amulet/Info.plist;
+				INFOPLIST_FILE = Amulet/SupportingFiles/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1085,7 +1133,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"Amulet/Preview Content\"";
 				DEVELOPMENT_TEAM = SZ6SDPY725;
 				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = Amulet/Info.plist;
+				INFOPLIST_FILE = Amulet/SupportingFiles/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

@@ -7,30 +7,27 @@
 //
 
 import Foundation
+import Combine
+import CombineExt
 
 final class GlobalDate {
 
-	public static let shared = GlobalDate()
+	private init() { }
 
-	let currentDate: Date
-
-	private init() {
-		self.currentDate = Date()
+	static var dateFormatted: (Date) -> String = { date in
+		let dateFormatter = DateFormatter()
+		dateFormatter.dateStyle = .medium
+		dateFormatter.timeStyle = .none
+		return dateFormatter.string(from: date)
 	}
 
-}
-var dateFormatted: (Date) -> String = { date in
-	let dateFormatter = DateFormatter()
-	dateFormatter.dateStyle = .medium
-	dateFormatter.timeStyle = .none
-	return dateFormatter.string(from: date)
-}
+	static var isDateCurrentDate: (Date) -> Bool = { date in
+		Calendar.current.isDateInToday(date)
+	}
 
-var isDateCurrentDate: (Date) -> Bool = { date in
-	Calendar.current.isDateInToday(date)
-}
+	static var validatedDate: (String) -> Date? = { string in
+		let dateFormatter = ISO8601DateFormatter()
+		return dateFormatter.date(from: string)
+	}
 
-var validatedDate: (String) -> Date? = { string in
-	let dateFormatter = ISO8601DateFormatter()
-	return dateFormatter.date(from: string)
 }

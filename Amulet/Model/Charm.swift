@@ -32,7 +32,7 @@ struct Charm: Codable, Identifiable {
 
 	var date: Date? {
 		if let string = self.dateAsString {
-			return validatedDate(string)
+			return GlobalDate.validatedDate(string)
 		}
 		return nil
 	}

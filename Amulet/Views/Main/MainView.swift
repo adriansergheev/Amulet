@@ -15,25 +15,35 @@ struct MainView: View {
 
 	// gradient
 	@State var gradient = [Color.red, Color.purple, Color.orange]
+	//	@State var gradient = [Color.white, Color.black]
 	@State var startPoint = UnitPoint(x: 0, y: 0)
 	@State var endPoint = UnitPoint(x: 0, y: 2)
 
 	// animation
-	@State var textAnimationScale: CGFloat = 1
+	@State var textAnimationScale: CGFloat = 1 {
+		didSet {
+			print("Changed!")
+		}
+	}
 
 	//modal
 	@State var isSettingsModalPresented = false
 	@State var isDetailModalPrestented = false
 
 	var body: some View {
-		ZStack {
+		content
+			.onAppear { self.viewModel.send(event: .onAppear) }
+
+	}
+
+	private func baseGradient(_ view: AnyView) -> AnyView {
+
+		return ZStack {
 			LinearGradient(gradient: Gradient(colors: self.gradient),
 						   startPoint: self.startPoint, endPoint: self.endPoint)
 				.overlay(
 					ZStack {
-						header()
-						main()
-						footer()
+						view
 					}
 			)
 		}
@@ -44,12 +54,57 @@ struct MainView: View {
 				self.startPoint = UnitPoint(x: 1, y: -1)
 				self.endPoint = UnitPoint(x: 0, y: 1)
 
-				self.textAnimationScale = 1.05
 			}
+		}
+		.eraseToAnyView()
+	}
+
+	private var content: some View {
+
+		switch viewModel.state {
+		case .loaded(let charms, let todaysCharm):
+			return baseGradient(
+				Group {
+					header()
+					main(todaysCharm)
+					footer(charms)
+				}
+				.eraseToAnyView()
+			)
+		case .idle, .loading:
+			return baseGradient(
+				Group {
+					header()
+						.disabled(true)
+						.opacity(0.1)
+					Spinner(isAnimating: true, style: .large)
+					footer([])
+						.disabled(true)
+						.opacity(0.1)
+				}
+				.eraseToAnyView()
+			)
+		case .error:
+			return baseGradient(
+				Group {
+					header()
+						.disabled(false)
+					Text("Error loading charms ;(")
+						.lineLimit(nil)
+						.foregroundColor(.white)
+						.padding(16)
+						.multilineTextAlignment(.center)
+						.frame(minWidth: 120, alignment: .center)
+					footer([])
+						.disabled(true)
+						.opacity(0.1)
+				}
+				.eraseToAnyView()
+			)
 		}
 	}
 
-	func header() -> some View {
+	private func header() -> some View {
 		VStack {
 			HStack {
 				Spacer()
@@ -73,7 +128,7 @@ struct MainView: View {
 		.offset(x: 0, y: 40)
 	}
 
-	func main() -> some View {
+	private func main(_ todaysCharm: Charm?) -> some View {
 		VStack(spacing: 32) {
 			Text("Today's charm")
 				.font(AmuletFont.defaultFont(36))
@@ -81,7 +136,7 @@ struct MainView: View {
 				.foregroundColor(.white)
 				.multilineTextAlignment(.center)
 
-			Text(viewModel.todaysCharm?.text ?? "")
+			Text(todaysCharm?.text ?? "") // err
 				.lineLimit(nil)
 				.foregroundColor(.white)
 				.padding(16)
@@ -89,9 +144,16 @@ struct MainView: View {
 				.frame(minWidth: 120, alignment: .center)
 		}
 		.scaleEffect(textAnimationScale)
+		.onAppear {
+			withAnimation {
+				withAnimation(Animation.easeInOut(duration: 6).repeatForever(autoreverses: true)) {
+					self.textAnimationScale = 1.05
+				}
+			}
+		}
 	}
 
-	func footer() -> some View {
+	private func footer(_ charms: [Charm]) -> some View {
 		VStack {
 			Spacer()
 
@@ -106,7 +168,7 @@ struct MainView: View {
 					.buttonStyle(NeumorphicButtonStyle.init(colorScheme: .light))
 					.padding(32)
 					.sheet(isPresented: $isDetailModalPrestented) {
-						DetailView(viewModel: DetailViewModel(charms: self.viewModel.charms))
+						DetailView(viewModel: DetailViewModel(charms: charms))
 							.environment(\.modalModeDetail, self.$isDetailModalPrestented)
 				}
 				Spacer()

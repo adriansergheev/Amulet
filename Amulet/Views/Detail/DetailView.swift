@@ -86,7 +86,7 @@ struct DetailView: View {
 
 struct DetailView_Previews: PreviewProvider {
 	static var previews: some View {
-		DetailView(viewModel: DetailViewModel(charms: MainViewModel().charms))
+		DetailView(viewModel: DetailViewModel(charms: demoCharms))
 	}
 }
 

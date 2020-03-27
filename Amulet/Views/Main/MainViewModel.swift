@@ -10,58 +10,155 @@ import Foundation
 import Combine
 import CombineExt
 
-private let demoCharms: [Charm] = demoCharmsText.enumerated().map { Charm(id: $0, text: $1) }
-
-public let demoCharmsText: [String] = [
-	"Don't keep texting people who don't want to text you back. You deserve so much more than that.",
-	"Try to take one action tonight that will make tomorrow morning just a little easier.",
-	"Accept that today won't be perfect. And that's ok.",
-	"Slow down. The world can begin and end on your freaking temrs today!",
-	"Set a goal for this week. Just one!",
-	"Remember that you're human and you're allowed to forget, and you'll remember tomorrow.",
-	"Today, give yourself permission to cancel one thing that's just too much. You don't have to do everything.",
-	"Things have been piling up and you might need a bit more sleep. Pick a night, and get to sleep early!",
-	"Put on the right song and allow yourself to drift away.",
-	"Give somebody you love a small gift. Nothing special, just a small gift.",
-	"Speaking of rituals. Try and create one for your shower or your bath. A ritual of looking after you. It's comforting to have a series of careful steps and actions that you know you're going to take every morning, where each one makes a difference to your personal care. ✨"
-]
+//final class MainViewModel: ObservableObject {
+//
+//	@Published
+//	private(set) var charms: [Charm] = []
+//
+//	@Published
+//	private(set) var todaysCharm: Charm?
+//
+//	private var subscriptions = Set<AnyCancellable>()
+//
+//	init() {
+//		let response =
+//			AmuletAPI
+//				.getItems()
+//				.map { $0.charm }
+//				.replaceError(with: [])
+//				.receive(on: DispatchQueue.main)
+//				.share()
+//
+//		response
+//			.map { charms in
+//				charms.first(where: {
+//					if let date = $0.date {
+//						return GlobalDate.isDateCurrentDate(date)
+//					} else {
+//						return false
+//					}
+//				})
+//		}
+//
+//		.assign(to: \.todaysCharm, on: self)
+//		.store(in: &subscriptions)
+//
+//		response
+//			.assign(to: \.charms, on: self)
+//			.store(in: &subscriptions)
+//	}
+//
+//}
 
 final class MainViewModel: ObservableObject {
 
-	@Published
-	private(set) var charms: [Charm] = []
+	//	@Published
+	//	private(set) var charms: [Charm] = []
+	//
+	//	@Published
+	//	private(set) var todaysCharm: Charm?
 
-	@Published
-	private(set) var todaysCharm: Charm?
+	@Published private(set) var state = State.idle
 
-	private var subscriptions = Set<AnyCancellable>()
+	private let input = PassthroughSubject<Event, Never>()
+
+	private var bag = Set<AnyCancellable>()
 
 	init() {
-		let response =
-			AmuletAPI
-				.getItems()
-				.map { $0.charm }
-				.replaceError(with: [])
-				.receive(on: DispatchQueue.main)
-				.share()
 
-		response
-			.map { charms in
-				charms.first(where: {
-					if let date = $0.date {
-						return isDateCurrentDate(date)
-					} else {
-						return false
-					}
-				})
-		}
+		Publishers
+			.system(initial: state,
+					reduce: Self.reduce,
+					scheduler: RunLoop.main,
+					feedbacks: [
+						Self.load(),
+						Self.userInput(input: input.eraseToAnyPublisher())
 
-		.assign(to: \.todaysCharm, on: self)
-		.store(in: &subscriptions)
-
-		response
-			.assign(to: \.charms, on: self)
-			.store(in: &subscriptions)
+			])
+			.print("👽 State machine:")
+			.assign(to: \.state, on: self)
+			.store(in: &bag)
 	}
 
+	deinit {
+		bag.removeAll()
+	}
+
+	func send(event: Event) {
+		input.send(event)
+	}
+
+}
+
+extension MainViewModel {
+	enum State {
+		case idle // do nothing
+		case loading // black/white animation for the background, spinner
+		case loaded([Charm], _ todays: Charm?) // do nothing
+		case error(Error) // show "not loaded" text or random charm
+	}
+
+	enum Event {
+		case onAppear
+		case onCharmsLoaded([Charm], _ todays: Charm?)
+		case onLoadFailed(Error)
+	}
+}
+
+extension MainViewModel {
+	static func reduce(_ state: State, _ event: Event) -> State {
+		switch state {
+		case .idle:
+			switch event {
+			case .onAppear:
+				return .loading
+			default:
+				return state
+			}
+		case .loading:
+			switch event {
+			case .onLoadFailed(let error):
+				return .error(error)
+			case .onCharmsLoaded(let charms, let todaysCharm):
+				return .loaded(charms, todaysCharm)
+			default:
+				return state
+			}
+		case .loaded:
+			return state
+		case .error:
+			return state
+		}
+	}
+
+	static func load() -> Feedback<State, Event> {
+
+		Feedback { (state: State) -> AnyPublisher<Event, Never> in
+
+			guard case .loading = state else {
+				return Empty().eraseToAnyPublisher()
+			}
+
+			return AmuletAPI
+				.getItems()
+				.map { Event.onCharmsLoaded($0.charm, getTodaysCharm($0.charm)) }
+				.catch { Just(Event.onLoadFailed($0))}
+				.receive(on: DispatchQueue.main)
+				.eraseToAnyPublisher()
+		}
+	}
+
+	private static var getTodaysCharm: ([Charm]) -> Charm? = { charms in
+		charms.first(where: {
+			if let date = $0.date {
+				return GlobalDate.isDateCurrentDate(date)
+			} else {
+				return false
+			}
+		})
+	}
+
+	static func userInput(input: AnyPublisher<Event, Never>)
+		-> Feedback<State, Event> { Feedback { _ in input }
+	}
 }
