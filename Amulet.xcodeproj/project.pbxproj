@@ -14,6 +14,9 @@
 		047E90DA242DEE6100D7FAAE /* Feedback.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047E90D9242DEE6100D7FAAE /* Feedback.swift */; };
 		047E90DC242DEE8000D7FAAE /* System.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047E90DB242DEE8000D7FAAE /* System.swift */; };
 		047E90DE242DFEE000D7FAAE /* Spinner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047E90DD242DFEE000D7FAAE /* Spinner.swift */; };
+		047E90E0242E390A00D7FAAE /* Date+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047E90DF242E390A00D7FAAE /* Date+Ext.swift */; };
+		047E90E2242E425B00D7FAAE /* ViewControllerRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047E90E1242E425B00D7FAAE /* ViewControllerRepresentable.swift */; };
+		047E90E4242E452D00D7FAAE /* AppSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047E90E3242E452D00D7FAAE /* AppSettings.swift */; };
 		0484527B2427731A00DBEEC1 /* AmuletConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0484527A2427731A00DBEEC1 /* AmuletConstants.swift */; };
 		0484527D2427D40800DBEEC1 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0484527C2427D40800DBEEC1 /* MainViewModel.swift */; };
 		048452A02427E19800DBEEC1 /* NeumorphicButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0484529F2427E19800DBEEC1 /* NeumorphicButtonStyle.swift */; };
@@ -43,6 +46,8 @@
 		04E320EC24276043008D1104 /* NotificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E320EB24276043008D1104 /* NotificationView.swift */; };
 		04E320EE24276043008D1104 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04E320ED24276043008D1104 /* Assets.xcassets */; };
 		04E320F124276043008D1104 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04E320F024276043008D1104 /* Preview Assets.xcassets */; };
+		04FE7F8524309D320023C1F5 /* UIApplication+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FE7F8424309D320023C1F5 /* UIApplication+Ext.swift */; };
+		04FE7F872430D3EA0023C1F5 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FE7F862430D3EA0023C1F5 /* SettingsViewModel.swift */; };
 		50F4A3D5B1ABB5C2B95E8A4B /* Pods_Amulet_WatchKit_Extension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26857FEEF01D659B3BC4B08E /* Pods_Amulet_WatchKit_Extension.framework */; };
 		BD1BDFE5B8292DD1562EEB60 /* Pods_Amulet_AmuletUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62CA41CD3630D69DF084C2EA /* Pods_Amulet_AmuletUITests.framework */; };
 		C843467C7077FC78F16DD382 /* Pods_AmuletTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D8032D31A7BA32956C29F4F /* Pods_AmuletTests.framework */; };
@@ -114,6 +119,9 @@
 		047E90D9242DEE6100D7FAAE /* Feedback.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Feedback.swift; sourceTree = "<group>"; };
 		047E90DB242DEE8000D7FAAE /* System.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = System.swift; sourceTree = "<group>"; };
 		047E90DD242DFEE000D7FAAE /* Spinner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Spinner.swift; sourceTree = "<group>"; };
+		047E90DF242E390A00D7FAAE /* Date+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Ext.swift"; sourceTree = "<group>"; };
+		047E90E1242E425B00D7FAAE /* ViewControllerRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerRepresentable.swift; sourceTree = "<group>"; };
+		047E90E3242E452D00D7FAAE /* AppSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSettings.swift; sourceTree = "<group>"; };
 		0484527A2427731A00DBEEC1 /* AmuletConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmuletConstants.swift; sourceTree = "<group>"; };
 		0484527C2427D40800DBEEC1 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		0484529F2427E19800DBEEC1 /* NeumorphicButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NeumorphicButtonStyle.swift; sourceTree = "<group>"; };
@@ -152,6 +160,8 @@
 		04E320F024276043008D1104 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		04E320F224276043008D1104 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		04E320F324276043008D1104 /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
+		04FE7F8424309D320023C1F5 /* UIApplication+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+Ext.swift"; sourceTree = "<group>"; };
+		04FE7F862430D3EA0023C1F5 /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
 		1F3F900DC5B1D320523EF00B /* Pods-Amulet WatchKit Extension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Amulet WatchKit Extension.release.xcconfig"; path = "Target Support Files/Pods-Amulet WatchKit Extension/Pods-Amulet WatchKit Extension.release.xcconfig"; sourceTree = "<group>"; };
 		26857FEEF01D659B3BC4B08E /* Pods_Amulet_WatchKit_Extension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Amulet_WatchKit_Extension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D67F6352449F82CC921409E /* Pods-Amulet.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Amulet.release.xcconfig"; path = "Target Support Files/Pods-Amulet/Pods-Amulet.release.xcconfig"; sourceTree = "<group>"; };
@@ -244,7 +254,10 @@
 		047E90D5242DEAD300D7FAAE /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				044825E52428EC91008002AB /* Environment+Ext.swift */,
 				047E90D6242DEAEE00D7FAAE /* View+Ext.swift */,
+				047E90DF242E390A00D7FAAE /* Date+Ext.swift */,
+				04FE7F8424309D320023C1F5 /* UIApplication+Ext.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -263,6 +276,7 @@
 			children = (
 				0484529F2427E19800DBEEC1 /* NeumorphicButtonStyle.swift */,
 				047E90DD242DFEE000D7FAAE /* Spinner.swift */,
+				047E90E1242E425B00D7FAAE /* ViewControllerRepresentable.swift */,
 			);
 			path = Misc;
 			sourceTree = "<group>";
@@ -290,6 +304,7 @@
 			isa = PBXGroup;
 			children = (
 				04A4B4F52428AA2700AD1660 /* SettingsView.swift */,
+				04FE7F862430D3EA0023C1F5 /* SettingsViewModel.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -308,6 +323,7 @@
 				0484527A2427731A00DBEEC1 /* AmuletConstants.swift */,
 				04B2C98F242A50F6004749D3 /* GlobalDate.swift */,
 				042691DC242CA8810005CFC0 /* Current.swift */,
+				047E90E3242E452D00D7FAAE /* AppSettings.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -421,7 +437,6 @@
 				0484529E2427E18500DBEEC1 /* Misc */,
 				04A4B4F32428A9FE00AD1660 /* Main */,
 				04A4B4F42428AA0800AD1660 /* Settings */,
-				044825E52428EC91008002AB /* Environment+Ext.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -804,6 +819,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04FE7F8524309D320023C1F5 /* UIApplication+Ext.swift in Sources */,
 				047E90D7242DEAEE00D7FAAE /* View+Ext.swift in Sources */,
 				04A4B4F62428AA2700AD1660 /* SettingsView.swift in Sources */,
 				044825E42428E99B008002AB /* DetailView.swift in Sources */,
@@ -816,13 +832,17 @@
 				042691DD242CA8810005CFC0 /* Current.swift in Sources */,
 				0488E249242B988E0028E62C /* AmuletBaseURL.swift in Sources */,
 				04E320A92427603E008D1104 /* AppDelegate.swift in Sources */,
+				047E90E2242E425B00D7FAAE /* ViewControllerRepresentable.swift in Sources */,
 				0488E241242B52A70028E62C /* AmuletAPI.swift in Sources */,
 				0484527B2427731A00DBEEC1 /* AmuletConstants.swift in Sources */,
 				0488E245242B5BBF0028E62C /* DetailViewModel.swift in Sources */,
 				04E320AB2427603E008D1104 /* SceneDelegate.swift in Sources */,
+				047E90E4242E452D00D7FAAE /* AppSettings.swift in Sources */,
 				04B2C990242A50F6004749D3 /* GlobalDate.swift in Sources */,
 				047E90DC242DEE8000D7FAAE /* System.swift in Sources */,
 				04E320AD2427603E008D1104 /* MainView.swift in Sources */,
+				047E90E0242E390A00D7FAAE /* Date+Ext.swift in Sources */,
+				04FE7F872430D3EA0023C1F5 /* SettingsViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

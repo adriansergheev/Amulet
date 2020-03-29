@@ -10,8 +10,8 @@ import SwiftUI
 
 struct MainView: View {
 
-	@ObservedObject
-	var viewModel: MainViewModel
+	@ObservedObject var viewModel: MainViewModel
+	@EnvironmentObject var settings: AppSettings
 
 	// gradient
 	@State var gradient = [Color.red, Color.purple, Color.orange]
@@ -20,87 +20,68 @@ struct MainView: View {
 	@State var endPoint = UnitPoint(x: 0, y: 2)
 
 	// animation
-	@State var textAnimationScale: CGFloat = 1 {
-		didSet {
-			print("Changed!")
-		}
-	}
+	@State var textAnimationScale: CGFloat = 1
 
 	//modal
 	@State var isSettingsModalPresented = false
 	@State var isDetailModalPrestented = false
 
 	var body: some View {
-		content
-			.onAppear { self.viewModel.send(event: .onAppear) }
 
-	}
-
-	private func baseGradient(_ view: AnyView) -> AnyView {
-
-		return ZStack {
+		ZStack {
 			LinearGradient(gradient: Gradient(colors: self.gradient),
 						   startPoint: self.startPoint, endPoint: self.endPoint)
-				.overlay(
-					ZStack {
-						view
+				.edgesIgnoringSafeArea(.all)
+				.onAppear {
+					withAnimation(Animation.easeInOut(duration: 6).repeatForever(autoreverses: true)) {
+
+						self.startPoint = UnitPoint(x: 1, y: -1)
+						self.endPoint = UnitPoint(x: 0, y: 1)
+
 					}
-			)
-		}
-		.edgesIgnoringSafeArea(.all)
-		.onAppear {
-			withAnimation(Animation.easeInOut(duration: 6).repeatForever(autoreverses: true)) {
-
-				self.startPoint = UnitPoint(x: 1, y: -1)
-				self.endPoint = UnitPoint(x: 0, y: 1)
-
 			}
+
+			content
+				.onAppear { self.viewModel.send(event: .onAppear) }
 		}
-		.eraseToAnyView()
 	}
 
 	private var content: some View {
 
 		switch viewModel.state {
 		case .loaded(let charms, let todaysCharm):
-			return baseGradient(
-				Group {
-					header()
-					main(todaysCharm)
-					footer(charms)
-				}
-				.eraseToAnyView()
-			)
+			return Group {
+				header()
+				main(todaysCharm)
+				footer(charms)
+			}
+			.eraseToAnyView()
 		case .idle, .loading:
-			return baseGradient(
-				Group {
-					header()
-						.disabled(true)
-						.opacity(0.1)
-					Spinner(isAnimating: true, style: .large)
-					footer([])
-						.disabled(true)
-						.opacity(0.1)
-				}
-				.eraseToAnyView()
-			)
+			return Group {
+				header()
+					.disabled(true)
+					.opacity(0.1)
+				Spinner(isAnimating: true, style: .large)
+				footer([])
+					.disabled(true)
+					.opacity(0.1)
+			}
+			.eraseToAnyView()
 		case .error:
-			return baseGradient(
-				Group {
-					header()
-						.disabled(false)
-					Text("Error loading charms ;(")
-						.lineLimit(nil)
-						.foregroundColor(.white)
-						.padding(16)
-						.multilineTextAlignment(.center)
-						.frame(minWidth: 120, alignment: .center)
-					footer([])
-						.disabled(true)
-						.opacity(0.1)
-				}
-				.eraseToAnyView()
-			)
+			return Group {
+				header()
+					.disabled(false)
+				Text("Error loading charms ;(")
+					.lineLimit(nil)
+					.foregroundColor(.white)
+					.padding(16)
+					.multilineTextAlignment(.center)
+					.frame(minWidth: 120, alignment: .center)
+				footer([])
+					.disabled(true)
+					.opacity(0.1)
+			}
+			.eraseToAnyView()
 		}
 	}
 
@@ -116,16 +97,16 @@ struct MainView: View {
 						.frame(width: 20, height: 20, alignment: .center)
 				})
 					.buttonStyle(NeumorphicButtonStyle.init(colorScheme: .light))
-					.offset(x: -16, y: 0)
+					.padding(.trailing)
 			}
 			.sheet(isPresented: $isSettingsModalPresented) {
-				SettingsView()
+				SettingsView(viewModel: SettingsViewModel(self.settings))
 					.environment(\.modalModeSettings, self.$isSettingsModalPresented)
+//					.environmentObject(self.settings)
 			}
 			Spacer()
 		}
 		.animation(nil)
-		.offset(x: 0, y: 40)
 	}
 
 	private func main(_ todaysCharm: Charm?) -> some View {
@@ -165,8 +146,8 @@ struct MainView: View {
 						.resizable()
 						.frame(width: 20, height: 20, alignment: .center)
 				})
-					.buttonStyle(NeumorphicButtonStyle.init(colorScheme: .light))
-					.padding(32)
+					.buttonStyle(NeumorphicButtonStyle(colorScheme: .light))
+					.padding(.leading)
 					.sheet(isPresented: $isDetailModalPrestented) {
 						DetailView(viewModel: DetailViewModel(charms: charms))
 							.environment(\.modalModeDetail, self.$isDetailModalPrestented)

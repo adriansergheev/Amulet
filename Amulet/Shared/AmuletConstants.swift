@@ -32,8 +32,7 @@ struct AmuletIcons {
 	//		.frame(width: 20, height: 20, alignment: .center)
 }
 
-
-public let demoCharms: [Charm] = demoCharmsText.enumerated().map { Charm(id: $0, text: $1) }
+let demoCharms: [Charm] = demoCharmsText.enumerated().map { Charm(id: $0, text: $1) }
 
 public let demoCharmsText: [String] = [
 	"Don't keep texting people who don't want to text you back. You deserve so much more than that.",

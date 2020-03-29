@@ -10,53 +10,7 @@ import Foundation
 import Combine
 import CombineExt
 
-//final class MainViewModel: ObservableObject {
-//
-//	@Published
-//	private(set) var charms: [Charm] = []
-//
-//	@Published
-//	private(set) var todaysCharm: Charm?
-//
-//	private var subscriptions = Set<AnyCancellable>()
-//
-//	init() {
-//		let response =
-//			AmuletAPI
-//				.getItems()
-//				.map { $0.charm }
-//				.replaceError(with: [])
-//				.receive(on: DispatchQueue.main)
-//				.share()
-//
-//		response
-//			.map { charms in
-//				charms.first(where: {
-//					if let date = $0.date {
-//						return GlobalDate.isDateCurrentDate(date)
-//					} else {
-//						return false
-//					}
-//				})
-//		}
-//
-//		.assign(to: \.todaysCharm, on: self)
-//		.store(in: &subscriptions)
-//
-//		response
-//			.assign(to: \.charms, on: self)
-//			.store(in: &subscriptions)
-//	}
-//
-//}
-
 final class MainViewModel: ObservableObject {
-
-	//	@Published
-	//	private(set) var charms: [Charm] = []
-	//
-	//	@Published
-	//	private(set) var todaysCharm: Charm?
 
 	@Published private(set) var state = State.idle
 
@@ -75,7 +29,8 @@ final class MainViewModel: ObservableObject {
 						Self.userInput(input: input.eraseToAnyPublisher())
 
 			])
-			.print("👽 State machine:")
+			//		.print("👽 State machine:")
+
 			.assign(to: \.state, on: self)
 			.store(in: &bag)
 	}

@@ -21,6 +21,8 @@ struct DetailView: View {
 	@State var startPoint = UnitPoint(x: 0, y: 0)
 	@State var endPoint = UnitPoint(x: 0, y: 2)
 
+	@State private var isSharePresented = false
+
 	var body: some View {
 		ZStack {
 			LinearGradient(gradient: Gradient(colors: self.gradient),
@@ -73,7 +75,14 @@ struct DetailView: View {
 			ScrollView(.vertical, showsIndicators: false) {
 				VStack(spacing: 16) {
 					ForEach(viewModel.charms, id: \.id) { charm in
-						DetailCellView(charm: charm)
+						Button(action: {
+							self.isSharePresented.toggle()
+						}) {
+							DetailCellView(charm: charm)
+						}
+						.sheet(isPresented: self.$isSharePresented) {
+							ActivityViewController(activityItems: [charm.text])
+						}
 					}
 				}
 				.padding(16)
@@ -103,6 +112,7 @@ struct DetailCellView: View {
 				.frame(minHeight: 40, alignment: .leading)
 
 			Text(charm.dateFormatted ?? "")
+				.foregroundColor(.black)
 				.font(AmuletFont.defaultFont(12))
 
 			Divider()

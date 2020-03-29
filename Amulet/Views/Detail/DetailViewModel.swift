@@ -15,10 +15,8 @@ final class DetailViewModel: ObservableObject {
 	var charms: [Charm]
 
 	init(charms: [Charm]) {
+
 		self.charms = charms
-		//			.filter { charm in
-		//				let current = Date()
-		//				return current > charm.date ?? current
-		//		}
+			.filter { ($0.date?.isPastDate) ?? false }
 	}
 }

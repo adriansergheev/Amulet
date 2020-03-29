@@ -17,5 +17,6 @@ struct AppEnvironment {
 	#else
 	private (set)var networkEnvironment: NetworkEnvironment = .prod
 	#endif
+	
 }
 // swiftlint:enable all
