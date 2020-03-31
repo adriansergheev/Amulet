@@ -35,6 +35,7 @@ struct DetailView: View {
 				.foregroundColor(Color.black)
 				.font(AmuletFont.defaultFont(50))
 				.italic()
+				.minimumScaleFactor(0.8)
 
 			Text("Here you can see your previous charms:")
 				.foregroundColor(.black)

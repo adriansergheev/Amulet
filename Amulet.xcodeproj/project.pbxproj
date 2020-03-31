@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		042691DD242CA8810005CFC0 /* Current.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042691DC242CA8810005CFC0 /* Current.swift */; };
+		043E13CD24334849008F582A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 043E13CC24334849008F582A /* GoogleService-Info.plist */; };
 		044825E42428E99B008002AB /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044825E32428E99B008002AB /* DetailView.swift */; };
 		044825E62428EC91008002AB /* Environment+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044825E52428EC91008002AB /* Environment+Ext.swift */; };
 		046919A524322B050060BA4B /* IntentionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046919A424322B050060BA4B /* IntentionView.swift */; };
@@ -32,11 +33,10 @@
 		048B9DB024332981004B127B /* SettingCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048B9DAF24332981004B127B /* SettingCellView.swift */; };
 		04A4B4F62428AA2700AD1660 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A4B4F52428AA2700AD1660 /* SettingsView.swift */; };
 		04B2C990242A50F6004749D3 /* GlobalDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B2C98F242A50F6004749D3 /* GlobalDate.swift */; };
+		04BDDA7B24336E0E00B3DA3C /* AssetsCatalog.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04BDDA7A24336E0D00B3DA3C /* AssetsCatalog.xcassets */; };
 		04E320A92427603E008D1104 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E320A82427603E008D1104 /* AppDelegate.swift */; };
 		04E320AB2427603E008D1104 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E320AA2427603E008D1104 /* SceneDelegate.swift */; };
 		04E320AD2427603E008D1104 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E320AC2427603E008D1104 /* MainView.swift */; };
-		04E320AF24276042008D1104 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04E320AE24276042008D1104 /* Assets.xcassets */; };
-		04E320B224276042008D1104 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04E320B124276042008D1104 /* Preview Assets.xcassets */; };
 		04E320B524276042008D1104 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04E320B324276042008D1104 /* LaunchScreen.storyboard */; };
 		04E320C024276042008D1104 /* AmuletTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E320BF24276042008D1104 /* AmuletTests.swift */; };
 		04E320CB24276042008D1104 /* AmuletUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E320CA24276042008D1104 /* AmuletUITests.swift */; };
@@ -79,6 +79,7 @@
 
 /* Begin PBXFileReference section */
 		042691DC242CA8810005CFC0 /* Current.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Current.swift; sourceTree = "<group>"; };
+		043E13CC24334849008F582A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		044825E32428E99B008002AB /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		044825E52428EC91008002AB /* Environment+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Environment+Ext.swift"; sourceTree = "<group>"; };
 		046919A424322B050060BA4B /* IntentionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntentionView.swift; sourceTree = "<group>"; };
@@ -103,12 +104,11 @@
 		048B9DAF24332981004B127B /* SettingCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingCellView.swift; sourceTree = "<group>"; };
 		04A4B4F52428AA2700AD1660 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		04B2C98F242A50F6004749D3 /* GlobalDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalDate.swift; sourceTree = "<group>"; };
+		04BDDA7A24336E0D00B3DA3C /* AssetsCatalog.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = AssetsCatalog.xcassets; sourceTree = "<group>"; };
 		04E320A52427603E008D1104 /* DailyCharm.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DailyCharm.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04E320A82427603E008D1104 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		04E320AA2427603E008D1104 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		04E320AC2427603E008D1104 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
-		04E320AE24276042008D1104 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		04E320B124276042008D1104 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		04E320B424276042008D1104 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		04E320B624276042008D1104 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		04E320BB24276042008D1104 /* AmuletTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AmuletTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -189,7 +189,6 @@
 			isa = PBXGroup;
 			children = (
 				04E320B624276042008D1104 /* Info.plist */,
-				04E320AE24276042008D1104 /* Assets.xcassets */,
 				04E320B324276042008D1104 /* LaunchScreen.storyboard */,
 			);
 			path = SupportingFiles;
@@ -313,25 +312,18 @@
 		04E320A72427603E008D1104 /* Amulet */ = {
 			isa = PBXGroup;
 			children = (
+				04BDDA7A24336E0D00B3DA3C /* AssetsCatalog.xcassets */,
+				043E13CC24334849008F582A /* GoogleService-Info.plist */,
 				0424AB3B242DE22700497340 /* App */,
 				047E90D5242DEAD300D7FAAE /* Extensions */,
 				047E90D8242DEE4B00D7FAAE /* Feedback */,
 				04B2C98B242A506D004749D3 /* Model */,
 				0488E23F242B52930028E62C /* Network */,
-				04E320B024276042008D1104 /* Preview Content */,
 				04B2C98C242A50A6004749D3 /* Shared */,
 				0424AB3C242DE23900497340 /* SupportingFiles */,
 				04E3210724276796008D1104 /* Views */,
 			);
 			path = Amulet;
-			sourceTree = "<group>";
-		};
-		04E320B024276042008D1104 /* Preview Content */ = {
-			isa = PBXGroup;
-			children = (
-				04E320B124276042008D1104 /* Preview Assets.xcassets */,
-			);
-			path = "Preview Content";
 			sourceTree = "<group>";
 		};
 		04E320BE24276042008D1104 /* AmuletTests */ = {
@@ -439,6 +431,7 @@
 				04E320A32427603E008D1104 /* Resources */,
 				04E320FD24276043008D1104 /* Embed Watch Content */,
 				4FFDE5C50357D9D0084BC0D0 /* [CP] Embed Pods Frameworks */,
+				043E13CE24334B1F008F582A /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -538,8 +531,8 @@
 			files = (
 				04E320B524276042008D1104 /* LaunchScreen.storyboard in Resources */,
 				0488E247242B5EA00028E62C /* AmuletMock.json in Resources */,
-				04E320B224276042008D1104 /* Preview Assets.xcassets in Resources */,
-				04E320AF24276042008D1104 /* Assets.xcassets in Resources */,
+				04BDDA7B24336E0E00B3DA3C /* AssetsCatalog.xcassets in Resources */,
+				043E13CD24334849008F582A /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -560,6 +553,23 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		043E13CE24334B1F008F582A /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Fabric/run\"\n";
+		};
 		4BF3F8064DEE5FA3A211DD3B /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -783,7 +793,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
-				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
@@ -869,8 +879,10 @@
 			baseConfigurationReference = 524B2EC3DC435A7C47016AE8 /* Pods-Amulet.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_ASSET_PATHS = "\"Amulet/Preview Content\"";
+				CURRENT_PROJECT_VERSION = 2;
+				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = SZ6SDPY725;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Amulet/SupportingFiles/Info.plist;
@@ -880,8 +892,9 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.blue-red.Amulet";
 				PRODUCT_NAME = DailyCharm;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -890,8 +903,10 @@
 			baseConfigurationReference = 2D67F6352449F82CC921409E /* Pods-Amulet.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_ASSET_PATHS = "\"Amulet/Preview Content\"";
+				CURRENT_PROJECT_VERSION = 2;
+				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = SZ6SDPY725;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Amulet/SupportingFiles/Info.plist;
@@ -901,8 +916,9 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.blue-red.Amulet";
 				PRODUCT_NAME = DailyCharm;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

@@ -138,6 +138,7 @@ struct MainView: View {
 				Spacer()
 			}
 		}
+		.padding(.bottom)
 		.animation(nil)
 	}
 
