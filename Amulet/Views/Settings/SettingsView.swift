@@ -15,45 +15,15 @@ struct SettingsView: View {
 	//injected modal reference
 	@Environment (\.modalModeSettings) var modalMode
 
-	// gradient
-	@State var gradient = [Color.purple, Color.white]
-	@State var startPoint = UnitPoint(x: 0, y: 0)
-	@State var endPoint = UnitPoint(x: 0, y: 2)
+	@State var isIntentModalPresented = false
 
 	var body: some View {
 		ZStack {
-			LinearGradient(gradient: Gradient(colors: self.gradient),
-						   startPoint: self.startPoint, endPoint: self.endPoint)
-				.onAppear {
-					withAnimation(Animation.easeInOut(duration: 6).repeatForever(autoreverses: true)) {
-
-						self.startPoint = UnitPoint(x: 1, y: -1)
-						self.endPoint = UnitPoint(x: 0, y: 1)
-
-					}
-			}
-			button()
+			GradientView(gradientColors: [Color.purple, Color.white])
+			CancelButtonView({ self.modalMode.wrappedValue.toggle() })
 			main()
 		}
 		.onAppear { self.viewModel.onAppear() }
-		.edgesIgnoringSafeArea(.all)
-	}
-
-	private func button() -> some View {
-		VStack {
-			HStack {
-				Spacer()
-				Button(action: {
-					self.modalMode.wrappedValue.toggle()
-				}, label: {
-					AmuletIcons
-						.cancel
-				})
-					.offset(x: -16, y: 0)
-			}
-			Spacer()
-		}
-		.offset(x: 0, y: 16)
 	}
 
 	private func main() -> some View {
@@ -80,7 +50,7 @@ struct SettingsView: View {
 						SettingCellView(
 
 							Button(action: {
-								print("Show intention")
+								self.isIntentModalPresented.toggle()
 							}, label: {
 								Text("Intention")
 								Spacer()
@@ -88,12 +58,15 @@ struct SettingsView: View {
 									.padding(.trailing, 4)
 							})
 								.foregroundColor(.black)
-								.eraseToAnyView()
+								.sheet(isPresented: $isIntentModalPresented) {
+									IntentionView(isPresented: self.$isIntentModalPresented)
+							}
+							.eraseToAnyView()
 						)
 
 						SettingCellView(
 							Button(action: {
-								self.openSystemWideSettings()
+								self.onOpenSystemSettings()
 							}, label: {
 								Text("Push Notifications")
 								Spacer()
@@ -117,7 +90,7 @@ struct SettingsView: View {
 
 						SettingCellView(
 							Button(action: {
-								print("Send email")
+								self.onReachOutViaEmail()
 							}, label: {
 								Text("Reach Out")
 								Spacer()
@@ -130,7 +103,7 @@ struct SettingsView: View {
 
 						SettingCellView(
 							Button(action: {
-								print("Show credits")
+								self.onCredits()
 							}, label: {
 								Text("Credits")
 								Spacer()
@@ -146,9 +119,10 @@ struct SettingsView: View {
 
 					VStack(alignment: .leading, spacing: 4) {
 
-//						Text("Terms / Privacy")
-//							.fontWeight(.semibold)
-//							.font(AmuletFont.defaultFont(14))
+						//						Text("Terms / Privacy")
+						//							.fontWeight(.semibold)
+						//							.font(AmuletFont.defaultFont(14))
+
 						Text("Version: \(UIApplication.appVersion)")
 							.fontWeight(.thin)
 							.multilineTextAlignment(.leading)
@@ -163,39 +137,26 @@ struct SettingsView: View {
 		.padding(EdgeInsets(top: 64, leading: 16, bottom: 16, trailing: 16))
 	}
 
-	private func openSystemWideSettings() {
+	private func onOpenSystemSettings() {
 		guard let stringURL = URL(string: UIApplication.openSettingsURLString) else { return }
 		UIApplication.shared.open(stringURL)
+	}
+
+	private func onReachOutViaEmail() {
+		if let emailUrl = URL(string: "mailto:\(Current.supportEmail)") {
+			UIApplication.shared.open(emailUrl, options: [:], completionHandler: nil)
+		}
+	}
+
+	private func onCredits() {
+		if let supportUrl = URL(string: Current.supportWebsite) {
+			UIApplication.shared.open(supportUrl)
+		}
 	}
 }
 
 struct SettingsView_Previews: PreviewProvider {
 	static var previews: some View {
 		SettingsView(viewModel: SettingsViewModel(AppSettings()))
-	}
-}
-
-struct SettingCellView: View {
-
-	let view: AnyView
-
-	init(_ view: AnyView) {
-		self.view = view
-	}
-
-	var body: some View {
-
-		ZStack {
-
-			VStack(alignment: .leading, spacing: 8) {
-
-				view
-
-				Divider()
-					.background(Color.black)
-					.frame(height: 2)
-
-			}
-		}
 	}
 }

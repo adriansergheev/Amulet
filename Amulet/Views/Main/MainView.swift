@@ -13,12 +13,6 @@ struct MainView: View {
 	@ObservedObject var viewModel: MainViewModel
 	@EnvironmentObject var settings: AppSettings
 
-	// gradient
-	@State var gradient = [Color.red, Color.purple, Color.orange]
-	//	@State var gradient = [Color.white, Color.black]
-	@State var startPoint = UnitPoint(x: 0, y: 0)
-	@State var endPoint = UnitPoint(x: 0, y: 2)
-
 	// animation
 	@State var textAnimationScale: CGFloat = 1
 
@@ -27,19 +21,8 @@ struct MainView: View {
 	@State var isDetailModalPrestented = false
 
 	var body: some View {
-
 		ZStack {
-			LinearGradient(gradient: Gradient(colors: self.gradient),
-						   startPoint: self.startPoint, endPoint: self.endPoint)
-				.edgesIgnoringSafeArea(.all)
-				.onAppear {
-					withAnimation(Animation.easeInOut(duration: 6).repeatForever(autoreverses: true)) {
-
-						self.startPoint = UnitPoint(x: 1, y: -1)
-						self.endPoint = UnitPoint(x: 0, y: 1)
-
-					}
-			}
+			GradientView()
 
 			content
 				.onAppear { self.viewModel.send(event: .onAppear) }
@@ -102,7 +85,7 @@ struct MainView: View {
 			.sheet(isPresented: $isSettingsModalPresented) {
 				SettingsView(viewModel: SettingsViewModel(self.settings))
 					.environment(\.modalModeSettings, self.$isSettingsModalPresented)
-//					.environmentObject(self.settings)
+					.environmentObject(self.settings)
 			}
 			Spacer()
 		}
@@ -117,7 +100,7 @@ struct MainView: View {
 				.foregroundColor(.white)
 				.multilineTextAlignment(.center)
 
-			Text(todaysCharm?.text ?? "") // err
+			Text(todaysCharm?.text ?? "Can't load today's charm ;(")
 				.lineLimit(nil)
 				.foregroundColor(.white)
 				.padding(16)

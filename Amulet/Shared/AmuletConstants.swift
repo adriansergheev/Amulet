@@ -14,7 +14,12 @@ struct AmuletFont {
 }
 
 struct AmuletColors {
+	//	static let lightBlue: Color = Color(UIColor(red: 178, green: 223, blue: 251, alpha: 1))
+	//	static let lightPurple: Color = Color(UIColor(red: 231, green: 164, blue: 228, alpha: 1))
 
+	//	// main gradient
+	//	static let washedRed: Color = Color(UIColor(red: 204, green: 14, blue: 116, alpha: 1))
+	//	static let strongYellow: Color = Color(UIColor(red: 243, green: 198, blue: 35, alpha: 1))
 }
 
 struct AmuletIcons {

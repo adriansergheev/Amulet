@@ -10,6 +10,8 @@
 		042691DD242CA8810005CFC0 /* Current.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042691DC242CA8810005CFC0 /* Current.swift */; };
 		044825E42428E99B008002AB /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044825E32428E99B008002AB /* DetailView.swift */; };
 		044825E62428EC91008002AB /* Environment+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044825E52428EC91008002AB /* Environment+Ext.swift */; };
+		046919A524322B050060BA4B /* IntentionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046919A424322B050060BA4B /* IntentionView.swift */; };
+		046919A724322E120060BA4B /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046919A624322E120060BA4B /* GradientView.swift */; };
 		047E90D7242DEAEE00D7FAAE /* View+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047E90D6242DEAEE00D7FAAE /* View+Ext.swift */; };
 		047E90DA242DEE6100D7FAAE /* Feedback.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047E90D9242DEE6100D7FAAE /* Feedback.swift */; };
 		047E90DC242DEE8000D7FAAE /* System.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047E90DB242DEE8000D7FAAE /* System.swift */; };
@@ -25,6 +27,9 @@
 		0488E245242B5BBF0028E62C /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0488E244242B5BBF0028E62C /* DetailViewModel.swift */; };
 		0488E247242B5EA00028E62C /* AmuletMock.json in Resources */ = {isa = PBXBuildFile; fileRef = 0488E246242B5EA00028E62C /* AmuletMock.json */; };
 		0488E249242B988E0028E62C /* AmuletBaseURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0488E248242B988E0028E62C /* AmuletBaseURL.swift */; };
+		048B9DAC243327CF004B127B /* CancelButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048B9DAB243327CF004B127B /* CancelButtonView.swift */; };
+		048B9DAE2433290E004B127B /* DetailCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048B9DAD2433290E004B127B /* DetailCellView.swift */; };
+		048B9DB024332981004B127B /* SettingCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048B9DAF24332981004B127B /* SettingCellView.swift */; };
 		04A4B4F62428AA2700AD1660 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A4B4F52428AA2700AD1660 /* SettingsView.swift */; };
 		04B2C990242A50F6004749D3 /* GlobalDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B2C98F242A50F6004749D3 /* GlobalDate.swift */; };
 		04E320A92427603E008D1104 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E320A82427603E008D1104 /* AppDelegate.swift */; };
@@ -35,23 +40,10 @@
 		04E320B524276042008D1104 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04E320B324276042008D1104 /* LaunchScreen.storyboard */; };
 		04E320C024276042008D1104 /* AmuletTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E320BF24276042008D1104 /* AmuletTests.swift */; };
 		04E320CB24276042008D1104 /* AmuletUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E320CA24276042008D1104 /* AmuletUITests.swift */; };
-		04E320D024276042008D1104 /* Amulet WatchKit App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 04E320CF24276042008D1104 /* Amulet WatchKit App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		04E320D624276042008D1104 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04E320D424276042008D1104 /* Interface.storyboard */; };
-		04E320D824276043008D1104 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04E320D724276043008D1104 /* Assets.xcassets */; };
-		04E320DF24276043008D1104 /* Amulet WatchKit Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 04E320DE24276043008D1104 /* Amulet WatchKit Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		04E320E424276043008D1104 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E320E324276043008D1104 /* ContentView.swift */; };
-		04E320E624276043008D1104 /* HostingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E320E524276043008D1104 /* HostingController.swift */; };
-		04E320E824276043008D1104 /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E320E724276043008D1104 /* ExtensionDelegate.swift */; };
-		04E320EA24276043008D1104 /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E320E924276043008D1104 /* NotificationController.swift */; };
-		04E320EC24276043008D1104 /* NotificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E320EB24276043008D1104 /* NotificationView.swift */; };
-		04E320EE24276043008D1104 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04E320ED24276043008D1104 /* Assets.xcassets */; };
-		04E320F124276043008D1104 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04E320F024276043008D1104 /* Preview Assets.xcassets */; };
 		04FE7F8524309D320023C1F5 /* UIApplication+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FE7F8424309D320023C1F5 /* UIApplication+Ext.swift */; };
 		04FE7F872430D3EA0023C1F5 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FE7F862430D3EA0023C1F5 /* SettingsViewModel.swift */; };
-		50F4A3D5B1ABB5C2B95E8A4B /* Pods_Amulet_WatchKit_Extension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26857FEEF01D659B3BC4B08E /* Pods_Amulet_WatchKit_Extension.framework */; };
 		BD1BDFE5B8292DD1562EEB60 /* Pods_Amulet_AmuletUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62CA41CD3630D69DF084C2EA /* Pods_Amulet_AmuletUITests.framework */; };
 		C843467C7077FC78F16DD382 /* Pods_AmuletTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D8032D31A7BA32956C29F4F /* Pods_AmuletTests.framework */; };
-		DE904B0B2E9850405ABD0203 /* Pods_Amulet_WatchKit_App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38DC02EFD7DA5D52B385F585 /* Pods_Amulet_WatchKit_App.framework */; };
 		E44149C2E7F08B9CEE2DF52E /* Pods_Amulet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86E010F62B38C4BF7273F0E2 /* Pods_Amulet.framework */; };
 /* End PBXBuildFile section */
 
@@ -70,41 +62,15 @@
 			remoteGlobalIDString = 04E320A42427603E008D1104;
 			remoteInfo = Amulet;
 		};
-		04E320D124276042008D1104 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 04E3209D2427603E008D1104 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 04E320CE24276042008D1104;
-			remoteInfo = "Amulet WatchKit App";
-		};
-		04E320E024276043008D1104 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 04E3209D2427603E008D1104 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 04E320DD24276043008D1104;
-			remoteInfo = "Amulet WatchKit Extension";
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		04E320F924276043008D1104 /* Embed App Extensions */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 13;
-			files = (
-				04E320DF24276043008D1104 /* Amulet WatchKit Extension.appex in Embed App Extensions */,
-			);
-			name = "Embed App Extensions";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		04E320FD24276043008D1104 /* Embed Watch Content */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
 			dstSubfolderSpec = 16;
 			files = (
-				04E320D024276042008D1104 /* Amulet WatchKit App.app in Embed Watch Content */,
 			);
 			name = "Embed Watch Content";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -115,6 +81,8 @@
 		042691DC242CA8810005CFC0 /* Current.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Current.swift; sourceTree = "<group>"; };
 		044825E32428E99B008002AB /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		044825E52428EC91008002AB /* Environment+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Environment+Ext.swift"; sourceTree = "<group>"; };
+		046919A424322B050060BA4B /* IntentionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntentionView.swift; sourceTree = "<group>"; };
+		046919A624322E120060BA4B /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		047E90D6242DEAEE00D7FAAE /* View+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Ext.swift"; sourceTree = "<group>"; };
 		047E90D9242DEE6100D7FAAE /* Feedback.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Feedback.swift; sourceTree = "<group>"; };
 		047E90DB242DEE8000D7FAAE /* System.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = System.swift; sourceTree = "<group>"; };
@@ -130,6 +98,9 @@
 		0488E244242B5BBF0028E62C /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
 		0488E246242B5EA00028E62C /* AmuletMock.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = AmuletMock.json; sourceTree = "<group>"; };
 		0488E248242B988E0028E62C /* AmuletBaseURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmuletBaseURL.swift; sourceTree = "<group>"; };
+		048B9DAB243327CF004B127B /* CancelButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CancelButtonView.swift; sourceTree = "<group>"; };
+		048B9DAD2433290E004B127B /* DetailCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCellView.swift; sourceTree = "<group>"; };
+		048B9DAF24332981004B127B /* SettingCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingCellView.swift; sourceTree = "<group>"; };
 		04A4B4F52428AA2700AD1660 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		04B2C98F242A50F6004749D3 /* GlobalDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalDate.swift; sourceTree = "<group>"; };
 		04E320A52427603E008D1104 /* DailyCharm.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DailyCharm.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -146,11 +117,9 @@
 		04E320C624276042008D1104 /* AmuletUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AmuletUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		04E320CA24276042008D1104 /* AmuletUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmuletUITests.swift; sourceTree = "<group>"; };
 		04E320CC24276042008D1104 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		04E320CF24276042008D1104 /* Amulet WatchKit App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Amulet WatchKit App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		04E320D524276042008D1104 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
 		04E320D724276043008D1104 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		04E320D924276043008D1104 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		04E320DE24276043008D1104 /* Amulet WatchKit Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Amulet WatchKit Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		04E320E324276043008D1104 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		04E320E524276043008D1104 /* HostingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostingController.swift; sourceTree = "<group>"; };
 		04E320E724276043008D1104 /* ExtensionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionDelegate.swift; sourceTree = "<group>"; };
@@ -204,22 +173,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		04E320DB24276043008D1104 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				50F4A3D5B1ABB5C2B95E8A4B /* Pods_Amulet_WatchKit_Extension.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		23AF75520C34DE8EF6E305F2 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				DE904B0B2E9850405ABD0203 /* Pods_Amulet_WatchKit_App.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -245,6 +198,7 @@
 		044825E22428E980008002AB /* Detail */ = {
 			isa = PBXGroup;
 			children = (
+				048B9DAD2433290E004B127B /* DetailCellView.swift */,
 				044825E32428E99B008002AB /* DetailView.swift */,
 				0488E244242B5BBF0028E62C /* DetailViewModel.swift */,
 			);
@@ -277,6 +231,8 @@
 				0484529F2427E19800DBEEC1 /* NeumorphicButtonStyle.swift */,
 				047E90DD242DFEE000D7FAAE /* Spinner.swift */,
 				047E90E1242E425B00D7FAAE /* ViewControllerRepresentable.swift */,
+				046919A624322E120060BA4B /* GradientView.swift */,
+				048B9DAB243327CF004B127B /* CancelButtonView.swift */,
 			);
 			path = Misc;
 			sourceTree = "<group>";
@@ -305,6 +261,8 @@
 			children = (
 				04A4B4F52428AA2700AD1660 /* SettingsView.swift */,
 				04FE7F862430D3EA0023C1F5 /* SettingsViewModel.swift */,
+				046919A424322B050060BA4B /* IntentionView.swift */,
+				048B9DAF24332981004B127B /* SettingCellView.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -348,8 +306,6 @@
 				04E320A52427603E008D1104 /* DailyCharm.app */,
 				04E320BB24276042008D1104 /* AmuletTests.xctest */,
 				04E320C624276042008D1104 /* AmuletUITests.xctest */,
-				04E320CF24276042008D1104 /* Amulet WatchKit App.app */,
-				04E320DE24276043008D1104 /* Amulet WatchKit Extension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -487,7 +443,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				04E320D224276042008D1104 /* PBXTargetDependency */,
 			);
 			name = Amulet;
 			productName = Amulet;
@@ -533,43 +488,6 @@
 			productReference = 04E320C624276042008D1104 /* AmuletUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
-		04E320CE24276042008D1104 /* Amulet WatchKit App */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 04E320FA24276043008D1104 /* Build configuration list for PBXNativeTarget "Amulet WatchKit App" */;
-			buildPhases = (
-				CB229A3D27CB9DFFD7D43922 /* [CP] Check Pods Manifest.lock */,
-				04E320CD24276042008D1104 /* Resources */,
-				04E320F924276043008D1104 /* Embed App Extensions */,
-				23AF75520C34DE8EF6E305F2 /* Frameworks */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				04E320E124276043008D1104 /* PBXTargetDependency */,
-			);
-			name = "Amulet WatchKit App";
-			productName = "Amulet WatchKit App";
-			productReference = 04E320CF24276042008D1104 /* Amulet WatchKit App.app */;
-			productType = "com.apple.product-type.application.watchapp2";
-		};
-		04E320DD24276043008D1104 /* Amulet WatchKit Extension */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 04E320F624276043008D1104 /* Build configuration list for PBXNativeTarget "Amulet WatchKit Extension" */;
-			buildPhases = (
-				FC91D0267FFD6B2AFEC9D233 /* [CP] Check Pods Manifest.lock */,
-				04E320DA24276043008D1104 /* Sources */,
-				04E320DB24276043008D1104 /* Frameworks */,
-				04E320DC24276043008D1104 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = "Amulet WatchKit Extension";
-			productName = "Amulet WatchKit Extension";
-			productReference = 04E320DE24276043008D1104 /* Amulet WatchKit Extension.appex */;
-			productType = "com.apple.product-type.watchkit2-extension";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -591,12 +509,6 @@
 						CreatedOnToolsVersion = 11.3.1;
 						TestTargetID = 04E320A42427603E008D1104;
 					};
-					04E320CE24276042008D1104 = {
-						CreatedOnToolsVersion = 11.3.1;
-					};
-					04E320DD24276043008D1104 = {
-						CreatedOnToolsVersion = 11.3.1;
-					};
 				};
 			};
 			buildConfigurationList = 04E320A02427603E008D1104 /* Build configuration list for PBXProject "Amulet" */;
@@ -615,8 +527,6 @@
 				04E320A42427603E008D1104 /* Amulet */,
 				04E320BA24276042008D1104 /* AmuletTests */,
 				04E320C524276042008D1104 /* AmuletUITests */,
-				04E320CE24276042008D1104 /* Amulet WatchKit App */,
-				04E320DD24276043008D1104 /* Amulet WatchKit Extension */,
 			);
 		};
 /* End PBXProject section */
@@ -644,24 +554,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		04E320CD24276042008D1104 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				04E320D824276043008D1104 /* Assets.xcassets in Resources */,
-				04E320D624276042008D1104 /* Interface.storyboard in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		04E320DC24276043008D1104 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				04E320F124276043008D1104 /* Preview Assets.xcassets in Resources */,
-				04E320EE24276043008D1104 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -746,28 +638,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		CB229A3D27CB9DFFD7D43922 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Amulet WatchKit App-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
 		FAFA062F8F6208B80DE67A4A /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -790,28 +660,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		FC91D0267FFD6B2AFEC9D233 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Amulet WatchKit Extension-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -820,6 +668,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				04FE7F8524309D320023C1F5 /* UIApplication+Ext.swift in Sources */,
+				048B9DAE2433290E004B127B /* DetailCellView.swift in Sources */,
+				048B9DB024332981004B127B /* SettingCellView.swift in Sources */,
 				047E90D7242DEAEE00D7FAAE /* View+Ext.swift in Sources */,
 				04A4B4F62428AA2700AD1660 /* SettingsView.swift in Sources */,
 				044825E42428E99B008002AB /* DetailView.swift in Sources */,
@@ -829,6 +679,9 @@
 				044825E62428EC91008002AB /* Environment+Ext.swift in Sources */,
 				047E90DE242DFEE000D7FAAE /* Spinner.swift in Sources */,
 				0488E243242B5ABF0028E62C /* Charm.swift in Sources */,
+				046919A724322E120060BA4B /* GradientView.swift in Sources */,
+				046919A524322B050060BA4B /* IntentionView.swift in Sources */,
+				048B9DAC243327CF004B127B /* CancelButtonView.swift in Sources */,
 				042691DD242CA8810005CFC0 /* Current.swift in Sources */,
 				0488E249242B988E0028E62C /* AmuletBaseURL.swift in Sources */,
 				04E320A92427603E008D1104 /* AppDelegate.swift in Sources */,
@@ -862,18 +715,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		04E320DA24276043008D1104 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				04E320E624276043008D1104 /* HostingController.swift in Sources */,
-				04E320E424276043008D1104 /* ContentView.swift in Sources */,
-				04E320EA24276043008D1104 /* NotificationController.swift in Sources */,
-				04E320E824276043008D1104 /* ExtensionDelegate.swift in Sources */,
-				04E320EC24276043008D1104 /* NotificationView.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -886,16 +727,6 @@
 			isa = PBXTargetDependency;
 			target = 04E320A42427603E008D1104 /* Amulet */;
 			targetProxy = 04E320C724276042008D1104 /* PBXContainerItemProxy */;
-		};
-		04E320D224276042008D1104 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 04E320CE24276042008D1104 /* Amulet WatchKit App */;
-			targetProxy = 04E320D124276042008D1104 /* PBXContainerItemProxy */;
-		};
-		04E320E124276043008D1104 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 04E320DD24276043008D1104 /* Amulet WatchKit Extension */;
-			targetProxy = 04E320E024276043008D1104 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -1030,96 +861,6 @@
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				VALIDATE_PRODUCT = YES;
-			};
-			name = Release;
-		};
-		04E320F724276043008D1104 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = B9533A63321E4A1DCDF2FC83 /* Pods-Amulet WatchKit Extension.debug.xcconfig */;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_ASSET_PATHS = "\"Amulet WatchKit Extension/Preview Content\"";
-				DEVELOPMENT_TEAM = SZ6SDPY725;
-				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = "Amulet WatchKit Extension/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@executable_path/../../Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.blue-red.Amulet.watchkitapp.watchkitextension";
-				PRODUCT_NAME = "${TARGET_NAME}";
-				SDKROOT = watchos;
-				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 6.1;
-			};
-			name = Debug;
-		};
-		04E320F824276043008D1104 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1F3F900DC5B1D320523EF00B /* Pods-Amulet WatchKit Extension.release.xcconfig */;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_ASSET_PATHS = "\"Amulet WatchKit Extension/Preview Content\"";
-				DEVELOPMENT_TEAM = SZ6SDPY725;
-				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = "Amulet WatchKit Extension/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@executable_path/../../Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.blue-red.Amulet.watchkitapp.watchkitextension";
-				PRODUCT_NAME = "${TARGET_NAME}";
-				SDKROOT = watchos;
-				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 6.1;
-			};
-			name = Release;
-		};
-		04E320FB24276043008D1104 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = E3B519678E5B5C9301211915 /* Pods-Amulet WatchKit App.debug.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = SZ6SDPY725;
-				IBSC_MODULE = Amulet_WatchKit_Extension;
-				INFOPLIST_FILE = "Amulet WatchKit App/Info.plist";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.blue-red.Amulet.watchkitapp";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = watchos;
-				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 6.1;
-			};
-			name = Debug;
-		};
-		04E320FC24276043008D1104 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = FC12661C5BAED040805F632C /* Pods-Amulet WatchKit App.release.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = SZ6SDPY725;
-				IBSC_MODULE = Amulet_WatchKit_Extension;
-				INFOPLIST_FILE = "Amulet WatchKit App/Info.plist";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.blue-red.Amulet.watchkitapp";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = watchos;
-				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 6.1;
 			};
 			name = Release;
 		};
@@ -1261,24 +1002,6 @@
 			buildConfigurations = (
 				04E320F424276043008D1104 /* Debug */,
 				04E320F524276043008D1104 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		04E320F624276043008D1104 /* Build configuration list for PBXNativeTarget "Amulet WatchKit Extension" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				04E320F724276043008D1104 /* Debug */,
-				04E320F824276043008D1104 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		04E320FA24276043008D1104 /* Build configuration list for PBXNativeTarget "Amulet WatchKit App" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				04E320FB24276043008D1104 /* Debug */,
-				04E320FC24276043008D1104 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

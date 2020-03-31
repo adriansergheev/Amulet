@@ -55,7 +55,7 @@ final class AppSettings: ObservableObject {
 
 	}
 
-	// MARK: - local notifications
+	// MARK: - Local notifications
 
 	func permissions(completion: @escaping (Bool) -> Void) {
 		let center = UNUserNotificationCenter.current()
@@ -90,7 +90,11 @@ final class AppSettings: ObservableObject {
 											trigger: trigger)
 
 		UNUserNotificationCenter.current().add(request) { error in
-			if let error = error { }
+			if let error = error {
+				#if DEBUG
+				print("UNUserNotificationCenter error: \(error)")
+				#endif
+			}
 		}
 
 	}

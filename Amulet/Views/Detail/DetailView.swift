@@ -10,52 +10,19 @@ import SwiftUI
 
 struct DetailView: View {
 
-	@ObservedObject
-	var viewModel: DetailViewModel
+	@ObservedObject var viewModel: DetailViewModel
 
 	//injected modal reference
 	@Environment (\.modalModeDetail) var modalMode
-
-	// gradient
-	@State var gradient = [Color.white, Color.pink, Color.purple]
-	@State var startPoint = UnitPoint(x: 0, y: 0)
-	@State var endPoint = UnitPoint(x: 0, y: 2)
 
 	@State private var isSharePresented = false
 
 	var body: some View {
 		ZStack {
-			LinearGradient(gradient: Gradient(colors: self.gradient),
-						   startPoint: self.startPoint, endPoint: self.endPoint)
-				.onAppear {
-					withAnimation(Animation.easeInOut(duration: 6).repeatForever(autoreverses: true)) {
-
-						self.startPoint = UnitPoint(x: 1, y: -1)
-						self.endPoint = UnitPoint(x: 0, y: 1)
-					}
-			}
-
-			button()
+			GradientView(gradientColors: [Color.white, Color.pink, Color.purple])
+			CancelButtonView({ self.modalMode.wrappedValue.toggle() })
 			main()
 		}
-		.edgesIgnoringSafeArea(.all)
-	}
-
-	func button() -> some View {
-		VStack {
-			HStack {
-				Spacer()
-				Button(action: {
-					self.modalMode.wrappedValue.toggle()
-				}, label: {
-					AmuletIcons
-						.cancel
-				})
-					.offset(x: -16, y: 0)
-			}
-			Spacer()
-		}
-		.offset(x: 0, y: 16)
 	}
 
 	func main() -> some View {
@@ -97,29 +64,4 @@ struct DetailView_Previews: PreviewProvider {
 	static var previews: some View {
 		DetailView(viewModel: DetailViewModel(charms: demoCharms))
 	}
-}
-
-struct DetailCellView: View {
-
-	let charm: Charm
-
-	var body: some View {
-
-		VStack(alignment: .leading, spacing: 4) {
-			Text(charm.text)
-				.foregroundColor(.black)
-				.lineLimit(nil)
-				.frame(minHeight: 40, alignment: .leading)
-
-			Text(charm.dateFormatted ?? "")
-				.foregroundColor(.black)
-				.font(AmuletFont.defaultFont(12))
-
-			Divider()
-				.background(Color.black)
-				.frame(height: 2)
-		}
-
-	}
-
 }

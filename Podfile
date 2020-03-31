@@ -18,19 +18,3 @@ target 'Amulet' do
   end
 
 end
-
-target 'Amulet WatchKit App' do
-  # Comment the next line if you don't want to use dynamic frameworks
-  use_frameworks!
-
-  # Pods for Amulet WatchKit App
-
-end
-
-target 'Amulet WatchKit Extension' do
-  # Comment the next line if you don't want to use dynamic frameworks
-  use_frameworks!
-
-  # Pods for Amulet WatchKit Extension
-
-end
