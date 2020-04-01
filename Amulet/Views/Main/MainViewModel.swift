@@ -19,7 +19,6 @@ final class MainViewModel: ObservableObject {
 	private var bag = Set<AnyCancellable>()
 
 	init() {
-
 		Publishers
 			.system(initial: state,
 					reduce: Self.reduce,
@@ -30,7 +29,6 @@ final class MainViewModel: ObservableObject {
 
 			])
 			//		.print("👽 State machine:")
-
 			.assign(to: \.state, on: self)
 			.store(in: &bag)
 	}
@@ -48,7 +46,7 @@ final class MainViewModel: ObservableObject {
 extension MainViewModel {
 	enum State {
 		case idle // do nothing
-		case loading // black/white animation for the background, spinner
+		case loading // spinner
 		case loaded([Charm], _ todays: Charm?) // do nothing
 		case error(Error) // show "not loaded" text or random charm
 	}
@@ -103,14 +101,15 @@ extension MainViewModel {
 		}
 	}
 
-	private static var getTodaysCharm: ([Charm]) -> Charm? = { charms in
-		charms.first(where: {
+	private static var getTodaysCharm: ([Charm]) -> Charm = { charms in
+		(charms.first(where: {
 			if let date = $0.date {
-				return GlobalDate.isDateCurrentDate(date)
+				return Calendar.current.isDateInToday(date)
 			} else {
 				return false
 			}
-		})
+		}) ?? charms.randomElement()! // fall back to random charm
+		)
 	}
 
 	static func userInput(input: AnyPublisher<Event, Never>)

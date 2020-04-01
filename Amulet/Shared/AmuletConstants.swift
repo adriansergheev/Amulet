@@ -13,20 +13,15 @@ struct AmuletFont {
 	static var defaultFont: (CGFloat) -> Font = { Font.system(size: $0) }
 }
 
-struct AmuletColors {
-	//	static let lightBlue: Color = Color(UIColor(red: 178, green: 223, blue: 251, alpha: 1))
-	//	static let lightPurple: Color = Color(UIColor(red: 231, green: 164, blue: 228, alpha: 1))
-
-	//	// main gradient
-	//	static let washedRed: Color = Color(UIColor(red: 204, green: 14, blue: 116, alpha: 1))
-	//	static let strongYellow: Color = Color(UIColor(red: 243, green: 198, blue: 35, alpha: 1))
-}
+struct AmuletColors { }
 
 struct AmuletIcons {
 	static let cancel: some View = Image(systemName: "multiply")
 		.resizable()
 		.frame(width: 20, height: 20, alignment: .center)
 		.foregroundColor(.black)
+
+	// Crashes as of iOS 13.4 Xcode 11.4 when used in external views
 
 	//	static let more: some View = Image(systemName: "heart")
 	//		.resizable()

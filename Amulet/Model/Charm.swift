@@ -32,12 +32,13 @@ struct Charm: Codable, Identifiable {
 
 	var date: Date? {
 		if let string = self.dateAsString {
-			return GlobalDate.validatedDate(string)
+			let dateFormatter = ISO8601DateFormatter()
+			return dateFormatter.date(from: string)
 		}
 		return nil
 	}
 
-	// crashes as of xcode 11.4 iOS 13.4 when using shared closures from GlobalDate.shared
+	// crashes as of xcode 11.4 iOS 13.4 when invoking Date() in external functions
 	var dateFormatted: String? {
 		if 	let string = self.dateAsString {
 
@@ -52,11 +53,4 @@ struct Charm: Codable, Identifiable {
 		}
 		return nil
 	}
-
-	//	var dateFormatted: String? {
-	//		if let validated = self.date {
-	//			return GlobalDate.shared.dateFormatted(validated)
-	//		}
-	//		return nil
-	//	}
 }

@@ -43,7 +43,6 @@ final class AppSettings: ObservableObject {
 		didSet {
 			permissions { [weak self] granted in
 				guard let `self` = self else { return }
-
 				if granted {
 					self.enableLocalNotifications(self.notificationReceivingTime)
 				}
@@ -84,8 +83,13 @@ final class AppSettings: ObservableObject {
 		content.title = text.randomElement() ?? ""
 		content.sound = UNNotificationSound.default
 
-		let identifier = UUID().uuidString
-		let request = UNNotificationRequest(identifier: identifier,
+		let uniqueIdentifier = UIDevice.current.identifierForVendor?.uuidString ?? ""
+
+		UNUserNotificationCenter
+			.current()
+			.removePendingNotificationRequests(withIdentifiers: [uniqueIdentifier])
+
+		let request = UNNotificationRequest(identifier: uniqueIdentifier,
 											content: content,
 											trigger: trigger)
 
@@ -96,7 +100,5 @@ final class AppSettings: ObservableObject {
 				#endif
 			}
 		}
-
 	}
-
 }
