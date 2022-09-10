@@ -16,11 +16,11 @@ enum NetworkEnvironment {
 
 enum AmuletAPI {
 	enum AmuletError: LocalizedError, Identifiable {
-
+		
 		case addressUnreachable(URL)
 		case invalidResponse
 		case invalidMock(Error?)
-
+		
 		var errorDescription: String? {
 			switch self {
 			case .invalidResponse:
@@ -31,52 +31,52 @@ enum AmuletAPI {
 				return "Can't load the mock json"
 			}
 		}
-
+		
 		var id: String { localizedDescription }
 	}
-
+	
 	typealias Response = AnyPublisher<CharmResponse, AmuletError>
-
+	
 	static func getItems(environment: NetworkEnvironment = Current.networkEnvironment) -> Response {
-
+		
 		let url = AmuletBaseURL.url.appendingPathComponent(".json/")
 		let apiReqQueue = DispatchQueue(label: "AmuletAPI", qos: .default, attributes: .concurrent)
-
+		
 		let decoder = JSONDecoder()
-
+		
 		let errorResponse: (Error?) -> AnyPublisher<CharmResponse, AmuletError> = { error in
 			AnyPublisher<CharmResponse, AmuletError>.create { subscriber in
 				subscriber.send(completion: .failure(.invalidMock(error)))
 				return AnyCancellable {}
 			}
 		}
-
+		
 		switch environment {
 		case .mock:
-			if let filepath = Bundle.main.path(forResource: "AmuletMock", ofType: "json") {
+			if let filepath = Bundle.module.path(forResource: "AmuletMock", ofType: "json") {
 				do {
-
+					
 					let url = URL(fileURLWithPath: filepath)
 					let data = try Data(contentsOf: url)
-
-					#if DEBUG
+					
+#if DEBUG
 					let text = try decoder.decode(CharmResponse.self, from: data)
 					print(text)
-					#endif
-
+#endif
+					
 					let parsed = try decoder.decode(CharmResponse.self, from: data)
 					return AnyPublisher<CharmResponse, AmuletError>.create { subscriber in
 						subscriber.send(parsed)
 						subscriber.send(completion: .finished)
 						return AnyCancellable {}
 					}
-
+					
 				} catch let error {
-
-					#if DEBUG
+					
+#if DEBUG
 					print("Could not be loaded: \(error)")
-					#endif
-
+#endif
+					
 					return errorResponse(error)
 				}
 			} else {
@@ -98,8 +98,8 @@ enum AmuletAPI {
 					default:
 						return AmuletError.invalidResponse
 					}
-			}
-			.eraseToAnyPublisher()
+				}
+				.eraseToAnyPublisher()
 		}
 	}
 }

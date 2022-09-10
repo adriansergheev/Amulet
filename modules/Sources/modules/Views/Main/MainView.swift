@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-struct MainView: View {
+public struct MainView: View {
 
 	@ObservedObject var viewModel: MainViewModel
 	@EnvironmentObject var settings: AppSettings
@@ -19,8 +19,14 @@ struct MainView: View {
 	//modal
 	@State var isSettingsModalPresented = false
 	@State var isDetailModalPrestented = false
+	
+	public init(
+		viewModel: MainViewModel
+	) {
+		self.viewModel = viewModel
+	}
 
-	var body: some View {
+	public var body: some View {
 		ZStack {
 			GradientView()
 

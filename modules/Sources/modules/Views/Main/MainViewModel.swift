@@ -10,7 +10,7 @@ import Foundation
 import Combine
 //import CombineExt
 
-final class MainViewModel: ObservableObject {
+final public class MainViewModel: ObservableObject {
 
 	@Published private(set) var state = State.idle
 
@@ -18,7 +18,7 @@ final class MainViewModel: ObservableObject {
 
 	private var bag = Set<AnyCancellable>()
 
-	init() {
+	public init() {
 		Publishers
 			.system(initial: state,
 					reduce: Self.reduce,
