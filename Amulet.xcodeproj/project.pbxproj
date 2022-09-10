@@ -3,13 +3,14 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 50;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		042691DD242CA8810005CFC0 /* Current.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042691DC242CA8810005CFC0 /* Current.swift */; };
 		044825E42428E99B008002AB /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044825E32428E99B008002AB /* DetailView.swift */; };
 		044825E62428EC91008002AB /* Environment+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044825E52428EC91008002AB /* Environment+Ext.swift */; };
+		0460D2CC28CD03DC00FA0D18 /* AnyPublisher+Create.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0460D2CB28CD03DC00FA0D18 /* AnyPublisher+Create.swift */; };
 		046919A524322B050060BA4B /* IntentionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046919A424322B050060BA4B /* IntentionView.swift */; };
 		046919A724322E120060BA4B /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046919A624322E120060BA4B /* GradientView.swift */; };
 		047E90D7242DEAEE00D7FAAE /* View+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047E90D6242DEAEE00D7FAAE /* View+Ext.swift */; };
@@ -38,7 +39,6 @@
 		04E320B524276042008D1104 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04E320B324276042008D1104 /* LaunchScreen.storyboard */; };
 		04FE7F8524309D320023C1F5 /* UIApplication+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FE7F8424309D320023C1F5 /* UIApplication+Ext.swift */; };
 		04FE7F872430D3EA0023C1F5 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FE7F862430D3EA0023C1F5 /* SettingsViewModel.swift */; };
-		E44149C2E7F08B9CEE2DF52E /* Pods_Amulet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86E010F62B38C4BF7273F0E2 /* Pods_Amulet.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -58,6 +58,7 @@
 		042691DC242CA8810005CFC0 /* Current.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Current.swift; sourceTree = "<group>"; };
 		044825E32428E99B008002AB /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		044825E52428EC91008002AB /* Environment+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Environment+Ext.swift"; sourceTree = "<group>"; };
+		0460D2CB28CD03DC00FA0D18 /* AnyPublisher+Create.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AnyPublisher+Create.swift"; sourceTree = "<group>"; };
 		046919A424322B050060BA4B /* IntentionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntentionView.swift; sourceTree = "<group>"; };
 		046919A624322E120060BA4B /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		047E90D6242DEAEE00D7FAAE /* View+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Ext.swift"; sourceTree = "<group>"; };
@@ -88,9 +89,6 @@
 		04E320B624276042008D1104 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		04FE7F8424309D320023C1F5 /* UIApplication+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+Ext.swift"; sourceTree = "<group>"; };
 		04FE7F862430D3EA0023C1F5 /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
-		2D67F6352449F82CC921409E /* Pods-Amulet.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Amulet.release.xcconfig"; path = "Target Support Files/Pods-Amulet/Pods-Amulet.release.xcconfig"; sourceTree = "<group>"; };
-		524B2EC3DC435A7C47016AE8 /* Pods-Amulet.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Amulet.debug.xcconfig"; path = "Target Support Files/Pods-Amulet/Pods-Amulet.debug.xcconfig"; sourceTree = "<group>"; };
-		86E010F62B38C4BF7273F0E2 /* Pods_Amulet.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Amulet.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,7 +96,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E44149C2E7F08B9CEE2DF52E /* Pods_Amulet.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -171,6 +168,7 @@
 				0488E246242B5EA00028E62C /* AmuletMock.json */,
 				0488E240242B52A70028E62C /* AmuletAPI.swift */,
 				0488E248242B988E0028E62C /* AmuletBaseURL.swift */,
+				0460D2CB28CD03DC00FA0D18 /* AnyPublisher+Create.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -218,8 +216,6 @@
 			children = (
 				04E320A72427603E008D1104 /* Amulet */,
 				04E320A62427603E008D1104 /* Products */,
-				796371764FF580F5BF1591F3 /* Pods */,
-				AF1037798C21C86270702B9B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -258,23 +254,6 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
-		796371764FF580F5BF1591F3 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				524B2EC3DC435A7C47016AE8 /* Pods-Amulet.debug.xcconfig */,
-				2D67F6352449F82CC921409E /* Pods-Amulet.release.xcconfig */,
-			);
-			path = Pods;
-			sourceTree = "<group>";
-		};
-		AF1037798C21C86270702B9B /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				86E010F62B38C4BF7273F0E2 /* Pods_Amulet.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -282,12 +261,10 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 04E320FE24276043008D1104 /* Build configuration list for PBXNativeTarget "Amulet" */;
 			buildPhases = (
-				FAFA062F8F6208B80DE67A4A /* [CP] Check Pods Manifest.lock */,
 				04E320A12427603E008D1104 /* Sources */,
 				04E320A22427603E008D1104 /* Frameworks */,
 				04E320A32427603E008D1104 /* Resources */,
 				04E320FD24276043008D1104 /* Embed Watch Content */,
-				4FFDE5C50357D9D0084BC0D0 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -344,48 +321,6 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
-/* Begin PBXShellScriptBuildPhase section */
-		4FFDE5C50357D9D0084BC0D0 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Amulet/Pods-Amulet-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Amulet/Pods-Amulet-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Amulet/Pods-Amulet-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		FAFA062F8F6208B80DE67A4A /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Amulet-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
-
 /* Begin PBXSourcesBuildPhase section */
 		04E320A12427603E008D1104 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -401,6 +336,7 @@
 				048452A02427E19800DBEEC1 /* NeumorphicButtonStyle.swift in Sources */,
 				047E90DA242DEE6100D7FAAE /* Feedback.swift in Sources */,
 				044825E62428EC91008002AB /* Environment+Ext.swift in Sources */,
+				0460D2CC28CD03DC00FA0D18 /* AnyPublisher+Create.swift in Sources */,
 				047E90DE242DFEE000D7FAAE /* Spinner.swift in Sources */,
 				0488E243242B5ABF0028E62C /* Charm.swift in Sources */,
 				046919A724322E120060BA4B /* GradientView.swift in Sources */,
@@ -552,7 +488,6 @@
 		};
 		04E320FF24276043008D1104 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 524B2EC3DC435A7C47016AE8 /* Pods-Amulet.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Apple Development";
@@ -576,7 +511,6 @@
 		};
 		04E3210024276043008D1104 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2D67F6352449F82CC921409E /* Pods-Amulet.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Apple Development";

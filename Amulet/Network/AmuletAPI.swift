@@ -8,7 +8,6 @@
 
 import Foundation
 import Combine
-import CombineExt
 
 enum NetworkEnvironment {
 	case mock
@@ -47,8 +46,8 @@ enum AmuletAPI {
 
 		let errorResponse: (Error?) -> AnyPublisher<CharmResponse, AmuletError> = { error in
 			AnyPublisher<CharmResponse, AmuletError>.create { subscriber in
-				subscriber(.failure(AmuletError.invalidMock(error)))
-				subscriber(.finished)
+				subscriber.send(completion: .failure(.invalidMock(error)))
+				return AnyCancellable {}
 			}
 		}
 
@@ -67,8 +66,9 @@ enum AmuletAPI {
 
 					let parsed = try decoder.decode(CharmResponse.self, from: data)
 					return AnyPublisher<CharmResponse, AmuletError>.create { subscriber in
-						subscriber(.value(parsed))
-						subscriber(.finished)
+						subscriber.send(parsed)
+						subscriber.send(completion: .finished)
+						return AnyCancellable {}
 					}
 
 				} catch let error {

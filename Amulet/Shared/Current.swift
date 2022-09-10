@@ -19,7 +19,7 @@ struct AppEnvironment {
 	#endif
 
 	public let supportEmail: String = "greenblackstudio@icloud.com"
-	public let supportWebsite: String = "https://twitter.com/asergheev"
+	public let supportWebsite: String = "https://twitter.com/adriansergheev"
 
 	public let intentionHeader: String = "Sometimes, you just need to be cheered up."
 	public let intentionText: String = """
