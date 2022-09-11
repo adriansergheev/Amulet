@@ -8,17 +8,17 @@
 
 import Foundation
 
-struct CharmResponse: Codable {
+public struct CharmResponse: Codable {
 	let charm: [Charm]
 }
 
-struct Charm: Codable, Identifiable {
-	let id: Int
-	let text: String
+public struct Charm: Codable, Identifiable {
+	public let id: Int
+	public let text: String
 
 	private let dateAsString: String?
 
-	init(id: Int, text: String, dateAsString: String? = nil) {
+	public init(id: Int, text: String, dateAsString: String? = nil) {
 		self.id = id
 		self.text = text
 		self.dateAsString = dateAsString
@@ -30,7 +30,7 @@ struct Charm: Codable, Identifiable {
 		case dateAsString = "date"
 	}
 
-	var date: Date? {
+	public var date: Date? {
 		if let string = self.dateAsString {
 			let dateFormatter = ISO8601DateFormatter()
 			return dateFormatter.date(from: string)
@@ -39,7 +39,7 @@ struct Charm: Codable, Identifiable {
 	}
 
 	// crashes as of xcode 11.4 iOS 13.4 when invoking Date() in external functions
-	var dateFormatted: String? {
+	public var dateFormatted: String? {
 		if 	let string = self.dateAsString {
 
 			let dateFormatter = ISO8601DateFormatter()

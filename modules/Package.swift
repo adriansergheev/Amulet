@@ -13,13 +13,28 @@ let package = Package(
 		),
 	],
 	dependencies: [
-		//
+		.package(
+			url: "https://github.com/pointfreeco/swift-composable-architecture",
+			branch: "protocol-beta"
+		)
 	],
 	targets: [
 		.target(
-			name: "Modules",
-			dependencies: [],
+			name: "ApiClient",
+			dependencies: [
+				"Model",
+				.product(name: "ComposableArchitecture", package: "swift-composable-architecture")
+			],
 			resources: [.copy("Resources/AmuletMock.json")]
+		),
+		.target(name: "Model"),
+		.target(
+			name: "Modules",
+			dependencies: [
+				"ApiClient",
+				"Model",
+				.product(name: "ComposableArchitecture", package: "swift-composable-architecture")
+			]
 		),
 		.testTarget(
 			name: "ModulesTests",

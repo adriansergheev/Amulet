@@ -1,16 +1,9 @@
-//
-//  ContentView.swift
-//  Amulet
-//
-//  Created by Andrian Sergheev on 2020-03-22.
-//  Copyright © 2020 Andrian Sergheev. All rights reserved.
-//
-
 import SwiftUI
+import Model
 
 public struct MainView: View {
 
-	@ObservedObject var viewModel: MainViewModel
+//	@ObservedObject var viewModel: MainViewModel
 	@EnvironmentObject var settings: AppSettings
 
 	// animation
@@ -21,9 +14,9 @@ public struct MainView: View {
 	@State var isDetailModalPrestented = false
 	
 	public init(
-		viewModel: MainViewModel
+//		viewModel: MainViewModel
 	) {
-		self.viewModel = viewModel
+//		self.viewModel = viewModel
 	}
 
 	public var body: some View {
@@ -31,47 +24,48 @@ public struct MainView: View {
 			GradientView()
 
 			content
-				.onAppear { self.viewModel.send(event: .onAppear) }
+//				.onAppear { self.viewModel.send(event: .onAppear) }
 		}
 	}
 
 	private var content: some View {
 
-		switch viewModel.state {
-		case .loaded(let charms, let todaysCharm):
-			return Group {
-				header()
-				main(todaysCharm)
-				footer(charms)
-			}
-			.eraseToAnyView()
-		case .idle, .loading:
-			return Group {
-				header()
-					.disabled(true)
-					.opacity(0.1)
-				Spinner(isAnimating: true, style: .large)
-				footer([])
-					.disabled(true)
-					.opacity(0.1)
-			}
-			.eraseToAnyView()
-		case .error:
-			return Group {
-				header()
-					.disabled(false)
-				Text("Error loading charms ;(")
-					.lineLimit(nil)
-					.foregroundColor(.white)
-					.padding(16)
-					.multilineTextAlignment(.center)
-					.frame(minWidth: 120, alignment: .center)
-				footer([])
-					.disabled(true)
-					.opacity(0.1)
-			}
-			.eraseToAnyView()
-		}
+//		switch viewModel.state {
+//		case .loaded(let charms, let todaysCharm):
+//			return Group {
+//				header()
+//				main(todaysCharm)
+//				footer(charms)
+//			}
+//			.eraseToAnyView()
+//		case .idle, .loading:
+//			return Group {
+//				header()
+//					.disabled(true)
+//					.opacity(0.1)
+//				Spinner(isAnimating: true, style: .large)
+//				footer([])
+//					.disabled(true)
+//					.opacity(0.1)
+//			}
+//			.eraseToAnyView()
+//		case .error:
+//			return Group {
+//				header()
+//					.disabled(false)
+//				Text("Error loading charms ;(")
+//					.lineLimit(nil)
+//					.foregroundColor(.white)
+//					.padding(16)
+//					.multilineTextAlignment(.center)
+//					.frame(minWidth: 120, alignment: .center)
+//				footer([])
+//					.disabled(true)
+//					.opacity(0.1)
+//			}
+//			.eraseToAnyView()
+//		}
+		Text("Hi")
 	}
 
 	private func header() -> some View {
@@ -152,6 +146,7 @@ public struct MainView: View {
 
 struct ContentView_Previews: PreviewProvider {
 	static var previews: some View {
-		MainView(viewModel: MainViewModel())
+//		MainView(viewModel: MainViewModel())
+		MainView()
 	}
 }

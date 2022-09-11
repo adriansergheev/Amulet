@@ -7,6 +7,7 @@
 //
 
 import SwiftUI
+import Model
 
 struct DetailView: View {
 

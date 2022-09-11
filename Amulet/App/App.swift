@@ -5,7 +5,7 @@ import SwiftUI
 struct Amulet: App {
 	var body: some Scene {
 		WindowGroup {
-			MainView(viewModel: MainViewModel())
+			MainView()
 				.environmentObject(AppSettings())
 		}
 	}
