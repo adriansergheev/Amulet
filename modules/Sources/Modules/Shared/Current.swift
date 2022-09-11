@@ -1,6 +1,5 @@
 import Foundation
 
-// swiftlint:disable all
 var Current = AppEnvironment()
 
 struct AppEnvironment {
@@ -12,4 +11,3 @@ struct AppEnvironment {
 \nIn our fast-paced world, we forget things we cared about before. The simple joys of life.\n\nCheck-in with the app when you feel like it, or receive a daily notification which will hopefully leave a charming feeling in your soul.
 """
 }
-// swiftlint:enable all

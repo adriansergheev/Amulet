@@ -57,8 +57,8 @@ final public class AppSettings: ObservableObject {
 	// MARK: - Local notifications
 	
 	func permissions(completion: @escaping (Bool) -> Void) {
-		let center = UNUserNotificationCenter.current()
-		center.requestAuthorization(options: [.badge, .sound, .alert]) { granted, _ in
+		let notificationCenter = UNUserNotificationCenter.current()
+		notificationCenter.requestAuthorization(options: [.badge, .sound, .alert]) { granted, _ in
 			completion(granted)
 		}
 	}

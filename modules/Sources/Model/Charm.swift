@@ -9,10 +9,10 @@
 import Foundation
 
 public struct CharmResponse: Codable {
-	let charm: [Charm]
+	public let charm: [Charm]
 }
 
-public struct Charm: Codable, Identifiable {
+public struct Charm: Codable, Identifiable, Equatable {
 	public let id: Int
 	public let text: String
 

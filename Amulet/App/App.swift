@@ -5,8 +5,13 @@ import SwiftUI
 struct Amulet: App {
 	var body: some Scene {
 		WindowGroup {
-			MainView()
-				.environmentObject(AppSettings())
+			MainView(
+				store: .init(
+					initialState: .loading,
+					reducer: AppReducer(amuletClient: .mock)
+				)
+			)
+			.environmentObject(AppSettings())
 		}
 	}
 }

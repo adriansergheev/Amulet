@@ -2,16 +2,16 @@ import Foundation
 import Model
 import XCTestDynamicOverlay
 
-struct AmuletClient {
-	var getCharms: @Sendable () async throws -> CharmResponse
+public struct AmuletClient {
+	public var getCharms: @Sendable () async throws -> CharmResponse
 	
-	enum AmuletError: LocalizedError, Identifiable {
+	public enum AmuletError: LocalizedError {
 		
 		case addressUnreachable(URL)
 		case invalidResponse
 		case invalidMock
 		
-		var errorDescription: String? {
+		public var errorDescription: String? {
 			switch self {
 			case .invalidResponse:
 				return "The server responded with garbage."
@@ -21,13 +21,11 @@ struct AmuletClient {
 				return "Can't load the mock json"
 			}
 		}
-		
-		var id: String { localizedDescription }
 	}
 }
 
 extension AmuletClient {
-	static let live = Self {
+	public static let live = Self {
 //		let url = AmuletBaseURL.url.appendingPathComponent(".json/")
 //		let (data, _) = try await URLSession.shared
 //			.data(from: url)
@@ -38,7 +36,7 @@ extension AmuletClient {
 }
 
 extension AmuletClient {
-	static let mock = Self {
+	public static let mock = Self {
 		guard let filePath = Bundle.module.path(forResource: "AmuletMock", ofType: "json") else {
 			throw AmuletError.invalidMock
 		}

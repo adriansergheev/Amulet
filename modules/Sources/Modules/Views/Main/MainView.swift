@@ -1,73 +1,109 @@
 import SwiftUI
 import Model
+import ComposableArchitecture
+import ApiClient
+
+public struct AppReducer: ReducerProtocol {
+	public enum State: Equatable {
+		case loading
+		case loaded([Charm], _ todays: Charm)
+		case error(NSError)
+	}
+	public enum Action: Equatable {
+		case onAppear
+		case onCharmsLoaded([Charm], _ todays: Charm)
+		case onLoadFailed(NSError)
+	}
+	
+	var amuletClient: AmuletClient
+	
+	public init(amuletClient: AmuletClient) {
+		self.amuletClient = amuletClient
+	}
+	
+	public func reduce(into state: inout State, action: Action) -> Effect<Action, Never> {
+		switch action {
+		case .onAppear:
+			state = .loading
+			return .task {
+				do {
+					try await Task.sleep(nanoseconds: NSEC_PER_SEC / 2)
+					let result = try await amuletClient.getCharms()
+					return .onCharmsLoaded(result.charm	, result.charm.randomElement()!)
+				} catch let error {
+					return .onLoadFailed(error as NSError)
+				}
+			}
+		case let .onCharmsLoaded(charms, todaysCharm):
+			state = .loaded(charms, todaysCharm)
+			return .none
+		case let .onLoadFailed(error):
+			state = .error(error)
+			return .none
+		}
+	}
+}
+
 
 public struct MainView: View {
-
-//	@ObservedObject var viewModel: MainViewModel
 	@EnvironmentObject var settings: AppSettings
-
 	// animation
 	@State var textAnimationScale: CGFloat = 1
-
 	//modal
 	@State var isSettingsModalPresented = false
 	@State var isDetailModalPrestented = false
 	
-	public init(
-//		viewModel: MainViewModel
-	) {
-//		self.viewModel = viewModel
+	let store: StoreOf<AppReducer>
+	
+	public init(store: StoreOf<AppReducer>) {
+		self.store = store
 	}
-
+	
 	public var body: some View {
-		ZStack {
-			GradientView()
-
-			content
-//				.onAppear { self.viewModel.send(event: .onAppear) }
+		WithViewStore(self.store) { viewStore in
+			ZStack {
+				GradientView()
+				Group {
+					switch viewStore.state {
+					case .loaded(let charms, let todaysCharm):
+						Group {
+							header()
+							main(todaysCharm)
+							footer(charms)
+						}
+						.eraseToAnyView()
+					case .loading:
+						Group {
+							header()
+								.disabled(true)
+								.opacity(0.1)
+							Spinner(isAnimating: true, style: .large)
+							footer([])
+								.disabled(true)
+								.opacity(0.1)
+						}
+						.eraseToAnyView()
+					case .error:
+						Group {
+							header()
+								.disabled(false)
+							Text("Error loading charms ;(")
+								.lineLimit(nil)
+								.foregroundColor(.white)
+								.padding(16)
+								.multilineTextAlignment(.center)
+								.frame(minWidth: 120, alignment: .center)
+							footer([])
+								.disabled(true)
+								.opacity(0.1)
+						}
+						.eraseToAnyView()
+					}
+				}
+			}
+			.onAppear { viewStore.send(.onAppear) }
 		}
 	}
-
-	private var content: some View {
-
-//		switch viewModel.state {
-//		case .loaded(let charms, let todaysCharm):
-//			return Group {
-//				header()
-//				main(todaysCharm)
-//				footer(charms)
-//			}
-//			.eraseToAnyView()
-//		case .idle, .loading:
-//			return Group {
-//				header()
-//					.disabled(true)
-//					.opacity(0.1)
-//				Spinner(isAnimating: true, style: .large)
-//				footer([])
-//					.disabled(true)
-//					.opacity(0.1)
-//			}
-//			.eraseToAnyView()
-//		case .error:
-//			return Group {
-//				header()
-//					.disabled(false)
-//				Text("Error loading charms ;(")
-//					.lineLimit(nil)
-//					.foregroundColor(.white)
-//					.padding(16)
-//					.multilineTextAlignment(.center)
-//					.frame(minWidth: 120, alignment: .center)
-//				footer([])
-//					.disabled(true)
-//					.opacity(0.1)
-//			}
-//			.eraseToAnyView()
-//		}
-		Text("Hi")
-	}
-
 	private func header() -> some View {
 		VStack {
 			HStack {
@@ -79,8 +115,8 @@ public struct MainView: View {
 						.resizable()
 						.frame(width: 20, height: 20, alignment: .center)
 				})
-					.buttonStyle(NeumorphicButtonStyle.init(colorScheme: .light))
-					.padding(.trailing)
+				.buttonStyle(NeumorphicButtonStyle.init(colorScheme: .light))
+				.padding(.trailing)
 			}
 			.sheet(isPresented: $isSettingsModalPresented) {
 				SettingsView(viewModel: SettingsViewModel(self.settings))
@@ -91,16 +127,16 @@ public struct MainView: View {
 		}
 		.animation(nil)
 	}
-
-	private func main(_ todaysCharm: Charm?) -> some View {
+	
+	private func main(_ todaysCharm: Charm) -> some View {
 		VStack(spacing: 32) {
 			Text("Today's charm")
 				.font(AmuletFont.defaultFont(36))
 				.italic()
 				.foregroundColor(.white)
 				.multilineTextAlignment(.center)
-
-			Text(todaysCharm?.text ?? "Can't load today's charm ;(")
+			
+			Text(todaysCharm.text)
 				.lineLimit(nil)
 				.foregroundColor(.white)
 				.padding(16)
@@ -116,11 +152,10 @@ public struct MainView: View {
 			}
 		}
 	}
-
+	
 	private func footer(_ charms: [Charm]) -> some View {
 		VStack {
 			Spacer()
-
 			HStack {
 				Button(action: {
 					self.isDetailModalPrestented.toggle()
@@ -129,11 +164,11 @@ public struct MainView: View {
 						.resizable()
 						.frame(width: 20, height: 20, alignment: .center)
 				})
-					.buttonStyle(NeumorphicButtonStyle(colorScheme: .light))
-					.padding(.leading)
-					.sheet(isPresented: $isDetailModalPrestented) {
-						DetailView(viewModel: DetailViewModel(charms: charms))
-							.environment(\.modalModeDetail, self.$isDetailModalPrestented)
+				.buttonStyle(NeumorphicButtonStyle(colorScheme: .light))
+				.padding(.leading)
+				.sheet(isPresented: $isDetailModalPrestented) {
+					DetailView(viewModel: DetailViewModel(charms: charms))
+						.environment(\.modalModeDetail, self.$isDetailModalPrestented)
 				}
 				Spacer()
 			}
@@ -141,12 +176,17 @@ public struct MainView: View {
 		.padding(.bottom)
 		.animation(nil)
 	}
-
 }
 
+#if DEBUG
 struct ContentView_Previews: PreviewProvider {
 	static var previews: some View {
-//		MainView(viewModel: MainViewModel())
-		MainView()
+		MainView(
+			store: .init(
+				initialState: .loading,
+				reducer: AppReducer(amuletClient: .mock)
+			)
+		)
 	}
 }
+#endif
