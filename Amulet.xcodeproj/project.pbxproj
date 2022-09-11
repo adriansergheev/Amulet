@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		04300FC528CD0FAB006E2EAB /* modules in Frameworks */ = {isa = PBXBuildFile; productRef = 04300FC428CD0FAB006E2EAB /* modules */; };
 		04B3BC79243487440009D83D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04B3BC78243487440009D83D /* Images.xcassets */; };
+		04CDECA228CDE8DF0076B759 /* Modules in Frameworks */ = {isa = PBXBuildFile; productRef = 04CDECA128CDE8DF0076B759 /* Modules */; };
 		04E320A92427603E008D1104 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E320A82427603E008D1104 /* App.swift */; };
 		04E320B524276042008D1104 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04E320B324276042008D1104 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
@@ -27,8 +27,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		04300FBE28CD0E72006E2EAB /* modules */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = modules; sourceTree = "<group>"; };
 		04B3BC78243487440009D83D /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		04CDECA028CDE8D60076B759 /* Modules */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Modules; sourceTree = "<group>"; };
 		04E320A52427603E008D1104 /* DailyCharm.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DailyCharm.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04E320A82427603E008D1104 /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
 		04E320B424276042008D1104 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -40,7 +40,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				04300FC528CD0FAB006E2EAB /* modules in Frameworks */,
+				04CDECA228CDE8DF0076B759 /* Modules in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -74,7 +74,7 @@
 		04E3209C2427603E008D1104 = {
 			isa = PBXGroup;
 			children = (
-				04300FBE28CD0E72006E2EAB /* modules */,
+				04CDECA028CDE8D60076B759 /* Modules */,
 				04E320A72427603E008D1104 /* Amulet */,
 				04E320A62427603E008D1104 /* Products */,
 				04300FBF28CD0EB0006E2EAB /* Frameworks */,
@@ -117,7 +117,7 @@
 			);
 			name = Amulet;
 			packageProductDependencies = (
-				04300FC428CD0FAB006E2EAB /* modules */,
+				04CDECA128CDE8DF0076B759 /* Modules */,
 			);
 			productName = Amulet;
 			productReference = 04E320A52427603E008D1104 /* DailyCharm.app */;
@@ -379,9 +379,9 @@
 /* End XCConfigurationList section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		04300FC428CD0FAB006E2EAB /* modules */ = {
+		04CDECA128CDE8DF0076B759 /* Modules */ = {
 			isa = XCSwiftPackageProductDependency;
-			productName = modules;
+			productName = Modules;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

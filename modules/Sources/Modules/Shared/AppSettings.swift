@@ -11,11 +11,11 @@ import Combine
 import NotificationCenter
 
 enum NotificationTime: String, CaseIterable {
-
+	
 	case morning
 	case noon
 	case evening
-
+	
 	var asNumber: Int {
 		switch self {
 		case .morning:
@@ -28,17 +28,17 @@ enum NotificationTime: String, CaseIterable {
 	}
 }
 
-final class AppSettings: ObservableObject {
-
+final public class AppSettings: ObservableObject {
+	
 	@Published var notificationsEnabled: Bool = false
-
+	
 	@Published var notificationReceivingTimeIndex: Int = 0 {
 		didSet {
 			notificationReceivingTime = NotificationTime
 				.allCases[self.notificationReceivingTimeIndex]
 		}
 	}
-
+	
 	@Published private(set) var notificationReceivingTime: NotificationTime = .morning {
 		didSet {
 			permissions { [weak self] granted in
@@ -49,55 +49,55 @@ final class AppSettings: ObservableObject {
 			}
 		}
 	}
-
-	init() {
-
+	
+	public init() {
+		
 	}
-
+	
 	// MARK: - Local notifications
-
+	
 	func permissions(completion: @escaping (Bool) -> Void) {
 		let center = UNUserNotificationCenter.current()
 		center.requestAuthorization(options: [.badge, .sound, .alert]) { granted, _ in
 			completion(granted)
 		}
 	}
-
+	
 	private var enableLocalNotifications: (_ time: NotificationTime) -> Void = { time in
-		#if DEBUG
+#if DEBUG
 		//every 30 sec
 		let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 1 * 30, repeats: false)
-		#else
+#else
 		let dateComponents = DateComponents(hour: time.asNumber)
 		let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: true)
-		#endif
-
+#endif
+		
 		let content = UNMutableNotificationContent()
-
+		
 		var text: [String] = [
 			"Today's charm",
 			"Take a minute for yourself.",
 			"Cheer yourself up with a charm."
 		]
-
+		
 		content.title = text.randomElement() ?? ""
 		content.sound = UNNotificationSound.default
-
+		
 		let uniqueIdentifier = UIDevice.current.identifierForVendor?.uuidString ?? ""
-
+		
 		UNUserNotificationCenter
 			.current()
 			.removePendingNotificationRequests(withIdentifiers: [uniqueIdentifier])
-
+		
 		let request = UNNotificationRequest(identifier: uniqueIdentifier,
-											content: content,
-											trigger: trigger)
-
+																				content: content,
+																				trigger: trigger)
+		
 		UNUserNotificationCenter.current().add(request) { error in
 			if let error = error {
-				#if DEBUG
+#if DEBUG
 				print("UNUserNotificationCenter error: \(error)")
-				#endif
+#endif
 			}
 		}
 	}

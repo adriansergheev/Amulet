@@ -4,12 +4,12 @@
 import PackageDescription
 
 let package = Package(
-	name: "modules",
+	name: "Modules",
 	platforms: [.iOS(.v15)],
 	products: [
 		.library(
-			name: "modules",
-			targets: ["modules"]
+			name: "Modules",
+			targets: ["Modules"]
 		),
 	],
 	dependencies: [
@@ -17,13 +17,13 @@ let package = Package(
 	],
 	targets: [
 		.target(
-			name: "modules",
+			name: "Modules",
 			dependencies: [],
 			resources: [.copy("Resources/AmuletMock.json")]
 		),
 		.testTarget(
-			name: "modulesTests",
-			dependencies: ["modules"]
+			name: "ModulesTests",
+			dependencies: ["Modules"]
 		),
 	]
 )
