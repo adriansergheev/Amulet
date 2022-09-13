@@ -3,42 +3,14 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		042691DD242CA8810005CFC0 /* Current.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042691DC242CA8810005CFC0 /* Current.swift */; };
-		044825E42428E99B008002AB /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044825E32428E99B008002AB /* DetailView.swift */; };
-		044825E62428EC91008002AB /* Environment+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044825E52428EC91008002AB /* Environment+Ext.swift */; };
-		046919A524322B050060BA4B /* IntentionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046919A424322B050060BA4B /* IntentionView.swift */; };
-		046919A724322E120060BA4B /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046919A624322E120060BA4B /* GradientView.swift */; };
-		047E90D7242DEAEE00D7FAAE /* View+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047E90D6242DEAEE00D7FAAE /* View+Ext.swift */; };
-		047E90DA242DEE6100D7FAAE /* Feedback.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047E90D9242DEE6100D7FAAE /* Feedback.swift */; };
-		047E90DC242DEE8000D7FAAE /* System.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047E90DB242DEE8000D7FAAE /* System.swift */; };
-		047E90DE242DFEE000D7FAAE /* Spinner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047E90DD242DFEE000D7FAAE /* Spinner.swift */; };
-		047E90E0242E390A00D7FAAE /* Date+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047E90DF242E390A00D7FAAE /* Date+Ext.swift */; };
-		047E90E2242E425B00D7FAAE /* ViewControllerRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047E90E1242E425B00D7FAAE /* ViewControllerRepresentable.swift */; };
-		047E90E4242E452D00D7FAAE /* AppSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047E90E3242E452D00D7FAAE /* AppSettings.swift */; };
-		0484527B2427731A00DBEEC1 /* AmuletConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0484527A2427731A00DBEEC1 /* AmuletConstants.swift */; };
-		0484527D2427D40800DBEEC1 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0484527C2427D40800DBEEC1 /* MainViewModel.swift */; };
-		048452A02427E19800DBEEC1 /* NeumorphicButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0484529F2427E19800DBEEC1 /* NeumorphicButtonStyle.swift */; };
-		0488E241242B52A70028E62C /* AmuletAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0488E240242B52A70028E62C /* AmuletAPI.swift */; };
-		0488E243242B5ABF0028E62C /* Charm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0488E242242B5ABF0028E62C /* Charm.swift */; };
-		0488E245242B5BBF0028E62C /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0488E244242B5BBF0028E62C /* DetailViewModel.swift */; };
-		0488E247242B5EA00028E62C /* AmuletMock.json in Resources */ = {isa = PBXBuildFile; fileRef = 0488E246242B5EA00028E62C /* AmuletMock.json */; };
-		0488E249242B988E0028E62C /* AmuletBaseURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0488E248242B988E0028E62C /* AmuletBaseURL.swift */; };
-		048B9DAC243327CF004B127B /* CancelButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048B9DAB243327CF004B127B /* CancelButtonView.swift */; };
-		048B9DAE2433290E004B127B /* DetailCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048B9DAD2433290E004B127B /* DetailCellView.swift */; };
-		048B9DB024332981004B127B /* SettingCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048B9DAF24332981004B127B /* SettingCellView.swift */; };
-		04A4B4F62428AA2700AD1660 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A4B4F52428AA2700AD1660 /* SettingsView.swift */; };
 		04B3BC79243487440009D83D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04B3BC78243487440009D83D /* Images.xcassets */; };
-		04E320A92427603E008D1104 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E320A82427603E008D1104 /* AppDelegate.swift */; };
-		04E320AB2427603E008D1104 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E320AA2427603E008D1104 /* SceneDelegate.swift */; };
-		04E320AD2427603E008D1104 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E320AC2427603E008D1104 /* MainView.swift */; };
+		04E320A92427603E008D1104 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E320A82427603E008D1104 /* App.swift */; };
 		04E320B524276042008D1104 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04E320B324276042008D1104 /* LaunchScreen.storyboard */; };
-		04FE7F8524309D320023C1F5 /* UIApplication+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FE7F8424309D320023C1F5 /* UIApplication+Ext.swift */; };
-		04FE7F872430D3EA0023C1F5 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FE7F862430D3EA0023C1F5 /* SettingsViewModel.swift */; };
-		E44149C2E7F08B9CEE2DF52E /* Pods_Amulet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86E010F62B38C4BF7273F0E2 /* Pods_Amulet.framework */; };
+		04E539AE28D0759100564EFC /* Views in Frameworks */ = {isa = PBXBuildFile; productRef = 04E539AD28D0759100564EFC /* Views */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -55,42 +27,12 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		042691DC242CA8810005CFC0 /* Current.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Current.swift; sourceTree = "<group>"; };
-		044825E32428E99B008002AB /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
-		044825E52428EC91008002AB /* Environment+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Environment+Ext.swift"; sourceTree = "<group>"; };
-		046919A424322B050060BA4B /* IntentionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntentionView.swift; sourceTree = "<group>"; };
-		046919A624322E120060BA4B /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
-		047E90D6242DEAEE00D7FAAE /* View+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Ext.swift"; sourceTree = "<group>"; };
-		047E90D9242DEE6100D7FAAE /* Feedback.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Feedback.swift; sourceTree = "<group>"; };
-		047E90DB242DEE8000D7FAAE /* System.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = System.swift; sourceTree = "<group>"; };
-		047E90DD242DFEE000D7FAAE /* Spinner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Spinner.swift; sourceTree = "<group>"; };
-		047E90DF242E390A00D7FAAE /* Date+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Ext.swift"; sourceTree = "<group>"; };
-		047E90E1242E425B00D7FAAE /* ViewControllerRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerRepresentable.swift; sourceTree = "<group>"; };
-		047E90E3242E452D00D7FAAE /* AppSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSettings.swift; sourceTree = "<group>"; };
-		0484527A2427731A00DBEEC1 /* AmuletConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmuletConstants.swift; sourceTree = "<group>"; };
-		0484527C2427D40800DBEEC1 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
-		0484529F2427E19800DBEEC1 /* NeumorphicButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NeumorphicButtonStyle.swift; sourceTree = "<group>"; };
-		0488E240242B52A70028E62C /* AmuletAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmuletAPI.swift; sourceTree = "<group>"; };
-		0488E242242B5ABF0028E62C /* Charm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Charm.swift; sourceTree = "<group>"; };
-		0488E244242B5BBF0028E62C /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
-		0488E246242B5EA00028E62C /* AmuletMock.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = AmuletMock.json; sourceTree = "<group>"; };
-		0488E248242B988E0028E62C /* AmuletBaseURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmuletBaseURL.swift; sourceTree = "<group>"; };
-		048B9DAB243327CF004B127B /* CancelButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CancelButtonView.swift; sourceTree = "<group>"; };
-		048B9DAD2433290E004B127B /* DetailCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCellView.swift; sourceTree = "<group>"; };
-		048B9DAF24332981004B127B /* SettingCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingCellView.swift; sourceTree = "<group>"; };
-		04A4B4F52428AA2700AD1660 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		04B3BC78243487440009D83D /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		04CDECA028CDE8D60076B759 /* Modules */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Modules; sourceTree = "<group>"; };
 		04E320A52427603E008D1104 /* DailyCharm.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DailyCharm.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		04E320A82427603E008D1104 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		04E320AA2427603E008D1104 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		04E320AC2427603E008D1104 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		04E320A82427603E008D1104 /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
 		04E320B424276042008D1104 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		04E320B624276042008D1104 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		04FE7F8424309D320023C1F5 /* UIApplication+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+Ext.swift"; sourceTree = "<group>"; };
-		04FE7F862430D3EA0023C1F5 /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
-		2D67F6352449F82CC921409E /* Pods-Amulet.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Amulet.release.xcconfig"; path = "Target Support Files/Pods-Amulet/Pods-Amulet.release.xcconfig"; sourceTree = "<group>"; };
-		524B2EC3DC435A7C47016AE8 /* Pods-Amulet.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Amulet.debug.xcconfig"; path = "Target Support Files/Pods-Amulet/Pods-Amulet.debug.xcconfig"; sourceTree = "<group>"; };
-		86E010F62B38C4BF7273F0E2 /* Pods_Amulet.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Amulet.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,7 +40,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E44149C2E7F08B9CEE2DF52E /* Pods_Amulet.framework in Frameworks */,
+				04E539AE28D0759100564EFC /* Views in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -108,8 +50,7 @@
 		0424AB3B242DE22700497340 /* App */ = {
 			isa = PBXGroup;
 			children = (
-				04E320A82427603E008D1104 /* AppDelegate.swift */,
-				04E320AA2427603E008D1104 /* SceneDelegate.swift */,
+				04E320A82427603E008D1104 /* App.swift */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -123,103 +64,20 @@
 			path = SupportingFiles;
 			sourceTree = "<group>";
 		};
-		044825E22428E980008002AB /* Detail */ = {
+		04300FBF28CD0EB0006E2EAB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				048B9DAD2433290E004B127B /* DetailCellView.swift */,
-				044825E32428E99B008002AB /* DetailView.swift */,
-				0488E244242B5BBF0028E62C /* DetailViewModel.swift */,
 			);
-			path = Detail;
-			sourceTree = "<group>";
-		};
-		047E90D5242DEAD300D7FAAE /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-				044825E52428EC91008002AB /* Environment+Ext.swift */,
-				047E90D6242DEAEE00D7FAAE /* View+Ext.swift */,
-				047E90DF242E390A00D7FAAE /* Date+Ext.swift */,
-				04FE7F8424309D320023C1F5 /* UIApplication+Ext.swift */,
-			);
-			path = Extensions;
-			sourceTree = "<group>";
-		};
-		047E90D8242DEE4B00D7FAAE /* Feedback */ = {
-			isa = PBXGroup;
-			children = (
-				047E90D9242DEE6100D7FAAE /* Feedback.swift */,
-				047E90DB242DEE8000D7FAAE /* System.swift */,
-			);
-			path = Feedback;
-			sourceTree = "<group>";
-		};
-		0484529E2427E18500DBEEC1 /* Misc */ = {
-			isa = PBXGroup;
-			children = (
-				0484529F2427E19800DBEEC1 /* NeumorphicButtonStyle.swift */,
-				047E90DD242DFEE000D7FAAE /* Spinner.swift */,
-				047E90E1242E425B00D7FAAE /* ViewControllerRepresentable.swift */,
-				046919A624322E120060BA4B /* GradientView.swift */,
-				048B9DAB243327CF004B127B /* CancelButtonView.swift */,
-			);
-			path = Misc;
-			sourceTree = "<group>";
-		};
-		0488E23F242B52930028E62C /* Network */ = {
-			isa = PBXGroup;
-			children = (
-				0488E246242B5EA00028E62C /* AmuletMock.json */,
-				0488E240242B52A70028E62C /* AmuletAPI.swift */,
-				0488E248242B988E0028E62C /* AmuletBaseURL.swift */,
-			);
-			path = Network;
-			sourceTree = "<group>";
-		};
-		04A4B4F32428A9FE00AD1660 /* Main */ = {
-			isa = PBXGroup;
-			children = (
-				04E320AC2427603E008D1104 /* MainView.swift */,
-				0484527C2427D40800DBEEC1 /* MainViewModel.swift */,
-			);
-			path = Main;
-			sourceTree = "<group>";
-		};
-		04A4B4F42428AA0800AD1660 /* Settings */ = {
-			isa = PBXGroup;
-			children = (
-				04A4B4F52428AA2700AD1660 /* SettingsView.swift */,
-				04FE7F862430D3EA0023C1F5 /* SettingsViewModel.swift */,
-				046919A424322B050060BA4B /* IntentionView.swift */,
-				048B9DAF24332981004B127B /* SettingCellView.swift */,
-			);
-			path = Settings;
-			sourceTree = "<group>";
-		};
-		04B2C98B242A506D004749D3 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				0488E242242B5ABF0028E62C /* Charm.swift */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		04B2C98C242A50A6004749D3 /* Shared */ = {
-			isa = PBXGroup;
-			children = (
-				0484527A2427731A00DBEEC1 /* AmuletConstants.swift */,
-				042691DC242CA8810005CFC0 /* Current.swift */,
-				047E90E3242E452D00D7FAAE /* AppSettings.swift */,
-			);
-			path = Shared;
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		04E3209C2427603E008D1104 = {
 			isa = PBXGroup;
 			children = (
+				04CDECA028CDE8D60076B759 /* Modules */,
 				04E320A72427603E008D1104 /* Amulet */,
 				04E320A62427603E008D1104 /* Products */,
-				796371764FF580F5BF1591F3 /* Pods */,
-				AF1037798C21C86270702B9B /* Frameworks */,
+				04300FBF28CD0EB0006E2EAB /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -235,44 +93,10 @@
 			isa = PBXGroup;
 			children = (
 				0424AB3B242DE22700497340 /* App */,
-				047E90D5242DEAD300D7FAAE /* Extensions */,
-				047E90D8242DEE4B00D7FAAE /* Feedback */,
-				04B2C98B242A506D004749D3 /* Model */,
-				0488E23F242B52930028E62C /* Network */,
-				04B2C98C242A50A6004749D3 /* Shared */,
 				0424AB3C242DE23900497340 /* SupportingFiles */,
-				04E3210724276796008D1104 /* Views */,
 				04B3BC78243487440009D83D /* Images.xcassets */,
 			);
 			path = Amulet;
-			sourceTree = "<group>";
-		};
-		04E3210724276796008D1104 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				044825E22428E980008002AB /* Detail */,
-				0484529E2427E18500DBEEC1 /* Misc */,
-				04A4B4F32428A9FE00AD1660 /* Main */,
-				04A4B4F42428AA0800AD1660 /* Settings */,
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
-		796371764FF580F5BF1591F3 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				524B2EC3DC435A7C47016AE8 /* Pods-Amulet.debug.xcconfig */,
-				2D67F6352449F82CC921409E /* Pods-Amulet.release.xcconfig */,
-			);
-			path = Pods;
-			sourceTree = "<group>";
-		};
-		AF1037798C21C86270702B9B /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				86E010F62B38C4BF7273F0E2 /* Pods_Amulet.framework */,
-			);
-			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -282,18 +106,19 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 04E320FE24276043008D1104 /* Build configuration list for PBXNativeTarget "Amulet" */;
 			buildPhases = (
-				FAFA062F8F6208B80DE67A4A /* [CP] Check Pods Manifest.lock */,
 				04E320A12427603E008D1104 /* Sources */,
 				04E320A22427603E008D1104 /* Frameworks */,
 				04E320A32427603E008D1104 /* Resources */,
 				04E320FD24276043008D1104 /* Embed Watch Content */,
-				4FFDE5C50357D9D0084BC0D0 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = Amulet;
+			packageProductDependencies = (
+				04E539AD28D0759100564EFC /* Views */,
+			);
 			productName = Amulet;
 			productReference = 04E320A52427603E008D1104 /* DailyCharm.app */;
 			productType = "com.apple.product-type.application";
@@ -305,7 +130,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1130;
-				LastUpgradeCheck = 1130;
+				LastUpgradeCheck = 1340;
 				ORGANIZATIONNAME = "Andrian Sergheev";
 				TargetAttributes = {
 					04E320A42427603E008D1104 = {
@@ -338,87 +163,17 @@
 			files = (
 				04B3BC79243487440009D83D /* Images.xcassets in Resources */,
 				04E320B524276042008D1104 /* LaunchScreen.storyboard in Resources */,
-				0488E247242B5EA00028E62C /* AmuletMock.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		4FFDE5C50357D9D0084BC0D0 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Amulet/Pods-Amulet-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Amulet/Pods-Amulet-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Amulet/Pods-Amulet-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		FAFA062F8F6208B80DE67A4A /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Amulet-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		04E320A12427603E008D1104 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				04FE7F8524309D320023C1F5 /* UIApplication+Ext.swift in Sources */,
-				048B9DAE2433290E004B127B /* DetailCellView.swift in Sources */,
-				048B9DB024332981004B127B /* SettingCellView.swift in Sources */,
-				047E90D7242DEAEE00D7FAAE /* View+Ext.swift in Sources */,
-				04A4B4F62428AA2700AD1660 /* SettingsView.swift in Sources */,
-				044825E42428E99B008002AB /* DetailView.swift in Sources */,
-				0484527D2427D40800DBEEC1 /* MainViewModel.swift in Sources */,
-				048452A02427E19800DBEEC1 /* NeumorphicButtonStyle.swift in Sources */,
-				047E90DA242DEE6100D7FAAE /* Feedback.swift in Sources */,
-				044825E62428EC91008002AB /* Environment+Ext.swift in Sources */,
-				047E90DE242DFEE000D7FAAE /* Spinner.swift in Sources */,
-				0488E243242B5ABF0028E62C /* Charm.swift in Sources */,
-				046919A724322E120060BA4B /* GradientView.swift in Sources */,
-				046919A524322B050060BA4B /* IntentionView.swift in Sources */,
-				048B9DAC243327CF004B127B /* CancelButtonView.swift in Sources */,
-				042691DD242CA8810005CFC0 /* Current.swift in Sources */,
-				0488E249242B988E0028E62C /* AmuletBaseURL.swift in Sources */,
-				04E320A92427603E008D1104 /* AppDelegate.swift in Sources */,
-				047E90E2242E425B00D7FAAE /* ViewControllerRepresentable.swift in Sources */,
-				0488E241242B52A70028E62C /* AmuletAPI.swift in Sources */,
-				0484527B2427731A00DBEEC1 /* AmuletConstants.swift in Sources */,
-				0488E245242B5BBF0028E62C /* DetailViewModel.swift in Sources */,
-				04E320AB2427603E008D1104 /* SceneDelegate.swift in Sources */,
-				047E90E4242E452D00D7FAAE /* AppSettings.swift in Sources */,
-				047E90DC242DEE8000D7FAAE /* System.swift in Sources */,
-				04E320AD2427603E008D1104 /* MainView.swift in Sources */,
-				047E90E0242E390A00D7FAAE /* Date+Ext.swift in Sources */,
-				04FE7F872430D3EA0023C1F5 /* SettingsViewModel.swift in Sources */,
+				04E320A92427603E008D1104 /* App.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -462,6 +217,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -522,6 +278,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -552,21 +309,21 @@
 		};
 		04E320FF24276043008D1104 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 524B2EC3DC435A7C47016AE8 /* Pods-Amulet.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_ASSET_PATHS = "";
-				DEVELOPMENT_TEAM = SZ6SDPY725;
+				DEVELOPMENT_TEAM = SUV78YK42U;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Amulet/SupportingFiles/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.blue-red.Amulet";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.blue-red.charms";
 				PRODUCT_NAME = DailyCharm;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
@@ -576,21 +333,21 @@
 		};
 		04E3210024276043008D1104 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2D67F6352449F82CC921409E /* Pods-Amulet.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_ASSET_PATHS = "";
-				DEVELOPMENT_TEAM = SZ6SDPY725;
+				DEVELOPMENT_TEAM = SUV78YK42U;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Amulet/SupportingFiles/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.blue-red.Amulet";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.blue-red.charms";
 				PRODUCT_NAME = DailyCharm;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
@@ -620,6 +377,13 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		04E539AD28D0759100564EFC /* Views */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Views;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 04E3209D2427603E008D1104 /* Project object */;
 }

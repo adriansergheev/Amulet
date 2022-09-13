@@ -11,6 +11,6 @@ Daily charming messages for you.
 
 
 ## Starring
-SwiftUI & Combine
-| Clean MVVM with redux-like state management.
+TCA with protocol based reducers (branch protocol-beta)
+https://github.com/pointfreeco/swift-composable-architecture/discussions/1282
 
