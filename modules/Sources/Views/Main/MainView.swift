@@ -5,17 +5,34 @@ import ApiClient
 import Shared
 
 public struct AppReducer: ReducerProtocol {
-	public enum State: Equatable {
-		case loading
-		case loaded([Charm], _ todays: Charm)
-		case error(NSError)
+	
+	public struct State: Equatable {
+		var charms: CharmsState
+		var isDetailPresented: Bool
+		
+		public enum CharmsState: Equatable {
+			case loading
+			case loaded([Charm], _ todays: Charm)
+			case error(NSError)
+		}
+		
+		public init(
+			state: CharmsState,
+			isDetailPresented: Bool = false
+		) {
+			self.charms = state
+			self.isDetailPresented = isDetailPresented
+		}
 	}
+	
 	public enum Action: Equatable {
 		case onAppear
 		case onCharmsLoaded([Charm], _ todays: Charm)
 		case onLoadFailed(NSError)
+		case setDetailSheet(isPresented: Bool)
 	}
 	
+	@Dependency(\.mainQueue) var mainQueue
 	var amuletClient: AmuletClient
 	
 	public init(amuletClient: AmuletClient) {
@@ -25,10 +42,10 @@ public struct AppReducer: ReducerProtocol {
 	public func reduce(into state: inout State, action: Action) -> Effect<Action, Never> {
 		switch action {
 		case .onAppear:
-			state = .loading
+			state.charms = .loading
 			return .task {
 				do {
-					try await Task.sleep(nanoseconds: NSEC_PER_SEC / 2) // 0.5 sec delay
+					try await self.mainQueue.sleep(for: 1)
 					let result = try await amuletClient.getCharms()
 					return .onCharmsLoaded(result.charm	, result.charm.randomElement()!)
 				} catch let error {
@@ -36,10 +53,13 @@ public struct AppReducer: ReducerProtocol {
 				}
 			}
 		case let .onCharmsLoaded(charms, todaysCharm):
-			state = .loaded(charms, todaysCharm)
+			state.charms = .loaded(charms, todaysCharm)
 			return .none
 		case let .onLoadFailed(error):
-			state = .error(error)
+			state.charms = .error(error)
+			return .none
+		case let .setDetailSheet(isPresented: isPresented):
+			state.isDetailPresented = isPresented
 			return .none
 		}
 	}
@@ -50,20 +70,21 @@ public struct MainView: View {
 	@EnvironmentObject var settings: AppSettings
 	@State var textAnimationScale: CGFloat = 1
 	@State var isSettingsModalPresented = false
-	@State var isDetailModalPrestented = false
 	
 	let store: StoreOf<AppReducer>
+	@ObservedObject var viewStore: ViewStoreOf<AppReducer>
 	
 	public init(store: StoreOf<AppReducer>) {
 		self.store = store
+		self.viewStore = ViewStore(self.store)
 	}
 	
 	public var body: some View {
-		WithViewStore(self.store) { viewStore in
+//		WithViewStore(self.store) { viewStore in
 			ZStack {
 				GradientView()
 				Group {
-					switch viewStore.state {
+					switch viewStore.charms {
 					case .loaded(let charms, let todaysCharm):
 						Group {
 							header()
@@ -101,7 +122,7 @@ public struct MainView: View {
 				}
 			}
 			.onAppear { viewStore.send(.onAppear) }
-		}
+//		}
 	}
 	private func header() -> some View {
 		VStack {
@@ -157,7 +178,7 @@ public struct MainView: View {
 			Spacer()
 			HStack {
 				Button(action: {
-					self.isDetailModalPrestented.toggle()
+					viewStore.send(.setDetailSheet(isPresented: true))
 				}, label: {
 					Image(systemName: "heart")
 						.resizable()
@@ -165,9 +186,14 @@ public struct MainView: View {
 				})
 				.buttonStyle(NeumorphicButtonStyle(colorScheme: .light))
 				.padding(.leading)
-				.sheet(isPresented: $isDetailModalPrestented) {
-					DetailView(charms: charms)
-						.environment(\.modalModeDetail, self.$isDetailModalPrestented)
+				.sheet(isPresented: viewStore.binding(
+					get: \.isDetailPresented,
+					send: AppReducer.Action.setDetailSheet(isPresented:))
+				) {
+					DetailView(
+						charms: charms,
+						onCloseTapped: { viewStore.send(.setDetailSheet(isPresented: false)) }
+					)
 				}
 				Spacer()
 			}
@@ -182,7 +208,7 @@ struct ContentView_Previews: PreviewProvider {
 	static var previews: some View {
 		MainView(
 			store: .init(
-				initialState: .loading,
+				initialState: .init(state: .loading),
 				reducer: AppReducer(amuletClient: .mock)
 			)
 		)

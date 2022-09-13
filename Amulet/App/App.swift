@@ -8,7 +8,7 @@ struct Amulet: App {
 		WindowGroup {
 			MainView(
 				store: .init(
-					initialState: .loading,
+					initialState: .init(state: .loading),
 					reducer: AppReducer(amuletClient: .mock)
 				)
 			)

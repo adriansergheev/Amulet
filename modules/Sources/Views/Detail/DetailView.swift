@@ -23,19 +23,23 @@ struct DetailCellView: View {
 
 
 struct DetailView: View {
-	@Environment (\.modalModeDetail) var modalMode
 	@State private var isSharePresented = false
-	@State var charms: [Charm] 
+	@State var charms: [Charm]
+	var onCloseTapped: (() -> Void)?
 	
-	public init(charms: [Charm]) {
+	public init(
+		charms: [Charm],
+		onCloseTapped: (() -> Void)?
+	) {
 		self.charms = charms
 			.filter { ($0.date?.isPastDate) ?? false }
+		self.onCloseTapped = onCloseTapped
 	}
 	
 	var body: some View {
 		ZStack {
 			GradientView(gradientColors: [Color.white, Color.pink, Color.purple])
-			CancelButtonView({ self.modalMode.wrappedValue.toggle() })
+			CancelButtonView { self.onCloseTapped?() }
 			VStack(alignment: .leading, spacing: 32) {
 				Spacer(minLength: 60)
 				Text("It's so lovely to\nsee you.")
@@ -85,7 +89,7 @@ public let demoCharmsText: [String] = [
 ]
 struct DetailView_Previews: PreviewProvider {
 	static var previews: some View {
-		DetailView(charms: demoCharms)
+		DetailView(charms: demoCharms, onCloseTapped: nil)
 	}
 }
 #endif
