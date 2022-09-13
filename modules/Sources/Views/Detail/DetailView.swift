@@ -3,8 +3,22 @@ import Model
 import Shared
 import Extensions
 
+let dateFormatter = {
+	let dateFormatter = DateFormatter()
+	dateFormatter.dateStyle = .medium
+	dateFormatter.timeStyle = .none
+	return dateFormatter
+}()
+
 struct DetailCellView: View {
 	let charm: Charm
+	let formattedDate: String
+	
+	init(charm: Charm) {
+		self.charm = charm
+		self.formattedDate =  dateFormatter.string(from: charm.date)
+	}
+	
 	
 	var body: some View {
 		VStack(alignment: .leading, spacing: 4) {
@@ -12,7 +26,7 @@ struct DetailCellView: View {
 				.foregroundColor(.black)
 				.lineLimit(nil)
 				.frame(minHeight: 40, alignment: .leading)
-			Text(charm.dateFormatted ?? "")
+			Text(formattedDate)
 				.foregroundColor(.black)
 				.font(AmuletFont.defaultFont(12))
 			Divider()
@@ -33,7 +47,7 @@ struct DetailView: View {
 		onCloseTap: (() -> Void)?
 	) {
 		self.charms = charms
-			.filter { ($0.date?.isPastDate) ?? false }
+			.filter { $0.date.isPastDate }
 		self.onCloseTap = onCloseTap
 	}
 	
@@ -72,7 +86,9 @@ struct DetailView: View {
 }
 
 #if DEBUG
-let demoCharms: [Charm] = demoCharmsText.enumerated().map { Charm(id: $0, text: $1) }
+let demoCharms: [Charm] = demoCharmsText
+	.enumerated()
+	.map { Charm(id: $0, text: $1, date: .init(timeIntervalSinceNow: 1)) }
 
 public let demoCharmsText: [String] = [
 	"Don't keep texting people who don't want to text you back. You deserve so much more than that.",

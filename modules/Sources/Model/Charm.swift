@@ -1,46 +1,35 @@
 import Foundation
 
-public struct CharmResponse: Codable {
+public struct CharmResponse: Decodable {
 	public let charm: [Charm]
 }
 
-public struct Charm: Codable, Identifiable, Equatable {
+public struct Charm: Decodable, Identifiable, Equatable {
 	public let id: Int
 	public let text: String
-	private let dateAsString: String?
+	public let date: Date
 	
-	public init(id: Int, text: String, dateAsString: String? = nil) {
+	public init(id: Int, text: String, date: Date) {
 		self.id = id
 		self.text = text
-		self.dateAsString = dateAsString
+		self.date = date
 	}
 	
-	enum CodingKeys: String, CodingKey {
+	enum CodingKeys: CodingKey {
 		case id
 		case text
-		case dateAsString = "date"
+		case date
 	}
 	
-	public lazy var date: Date? = {
-		if let string = self.dateAsString {
-			let dateFormatter = ISO8601DateFormatter()
-			return dateFormatter.date(from: string)
+	public init(from decoder: Decoder) throws {
+		let container = try decoder.container(keyedBy: CodingKeys.self)
+		self.id = try container.decode(Int.self, forKey: .id)
+		self.text = try container.decode(String.self, forKey: .text)
+		let dateAsString = try container.decode(String.self, forKey: .date)
+		let dateFormatter = ISO8601DateFormatter()
+		guard let date = dateFormatter.date(from: dateAsString) else {
+			throw NSError() as Error // TODO: Convert to typed error.
 		}
-		return nil
-	}()
-	
-	public lazy var dateFormatted: String? = {
-		if 	let string = self.dateAsString {
-			
-			let dateFormatter = ISO8601DateFormatter()
-			
-			if let validated = dateFormatter.date(from: string) {
-				let dateFormatter = DateFormatter()
-				dateFormatter.dateStyle = .medium
-				dateFormatter.timeStyle = .none
-				return dateFormatter.string(from: validated)
-			}
-		}
-		return nil
-	}()
+		self.date = date
+	}
 }
