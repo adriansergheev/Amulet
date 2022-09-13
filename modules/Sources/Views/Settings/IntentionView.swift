@@ -2,13 +2,11 @@ import SwiftUI
 import Shared
 
 struct IntentionView: View {
-	
 	@Binding var isPresented: Bool
-	
 	var body: some View {
 		ZStack {
 			GradientView(gradientColors: [.pink, .white])
-			CancelButtonView({ self.isPresented = false })
+			CancelButtonView { self.isPresented = false }
 			VStack(alignment: .leading, spacing: 36) {
 				Text(Current.intentionHeader)
 					.font(.title)

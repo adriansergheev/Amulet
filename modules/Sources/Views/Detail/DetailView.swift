@@ -5,6 +5,7 @@ import Extensions
 
 struct DetailCellView: View {
 	let charm: Charm
+	
 	var body: some View {
 		VStack(alignment: .leading, spacing: 4) {
 			Text(charm.text)
@@ -66,7 +67,6 @@ struct DetailView: View {
 				}
 			}
 			.padding(16)
-			.animation(nil)
 		}
 	}
 }

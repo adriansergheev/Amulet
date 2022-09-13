@@ -74,11 +74,10 @@ public struct AppReducer: ReducerProtocol {
 
 
 public struct MainView: View {
-	@EnvironmentObject var settings: AppSettings
-	@State var textAnimationScale: CGFloat = 1
-	
 	let store: StoreOf<AppReducer>
 	@ObservedObject var viewStore: ViewStoreOf<AppReducer>
+	@EnvironmentObject var settings: AppSettings
+	@State var textAnimationScale: CGFloat = 1
 	
 	public init(store: StoreOf<AppReducer>) {
 		self.store = store
@@ -151,7 +150,6 @@ public struct MainView: View {
 			}
 			Spacer()
 		}
-		.animation(nil)
 	}
 	
 	private func main(_ todaysCharm: Charm) -> some View {
@@ -205,7 +203,6 @@ public struct MainView: View {
 			}
 		}
 		.padding(.bottom)
-		.animation(nil)
 	}
 }
 

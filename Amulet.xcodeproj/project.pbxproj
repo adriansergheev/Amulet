@@ -315,7 +315,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_ASSET_PATHS = "";
-				DEVELOPMENT_TEAM = SZ6SDPY725;
+				DEVELOPMENT_TEAM = SUV78YK42U;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Amulet/SupportingFiles/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
@@ -323,7 +323,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.blue-red.Amulet";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.blue-red.charms";
 				PRODUCT_NAME = DailyCharm;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
@@ -339,7 +339,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_ASSET_PATHS = "";
-				DEVELOPMENT_TEAM = SZ6SDPY725;
+				DEVELOPMENT_TEAM = SUV78YK42U;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Amulet/SupportingFiles/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
@@ -347,7 +347,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.blue-red.Amulet";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.blue-red.charms";
 				PRODUCT_NAME = DailyCharm;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;

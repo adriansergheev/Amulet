@@ -26,7 +26,8 @@ public struct AmuletClient {
 
 extension AmuletClient {
 	public static let live = Self {
-		//		let url = AmuletBaseURL.url.appendingPathComponent(".json/")
+		//
+		//		let url = URL(string: "https://amulet-4b393.firebaseio.com/")!.appendingPathComponent(".json/")
 		//		let (data, _) = try await URLSession.shared
 		//			.data(from: url)
 		//		let parsed = try JSONDecoder().decode(CharmResponse.self, from: data)

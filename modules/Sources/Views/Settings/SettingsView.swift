@@ -75,7 +75,8 @@ struct SettingsView: View {
 								.eraseToAnyView()
 							)
 							SettingCellView(
-								Picker(selection: self.$settings.notificationReceivingTimeIndex, label: Text("Push notification time")) {
+								Picker(selection: self.$settings.notificationReceivingTimeIndex,
+											 label: Text("Push notification time")) {
 									ForEach(0 ..< NotificationTime.allCases.count) { time in
 										Text("\(NotificationTime.allCases[time].rawValue)")
 									}
@@ -123,7 +124,6 @@ struct SettingsView: View {
 					}
 				}
 			}
-			.animation(nil)
 			.padding(EdgeInsets(top: 64, leading: 16, bottom: 16, trailing: 16))
 		}
 		.onAppear {
