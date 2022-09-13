@@ -8,6 +8,8 @@
 
 import SwiftUI
 import Model
+import Shared
+import Extensions
 
 struct DetailView: View {
 	

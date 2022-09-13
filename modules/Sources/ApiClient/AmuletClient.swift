@@ -3,7 +3,7 @@ import Model
 import XCTestDynamicOverlay
 
 public struct AmuletClient {
-	public var getCharms: @Sendable () async throws -> CharmResponse
+	public var getCharms: () async throws -> CharmResponse
 	
 	public enum AmuletError: LocalizedError {
 		
@@ -26,12 +26,12 @@ public struct AmuletClient {
 
 extension AmuletClient {
 	public static let live = Self {
-//		let url = AmuletBaseURL.url.appendingPathComponent(".json/")
-//		let (data, _) = try await URLSession.shared
-//			.data(from: url)
-//		let parsed = try JSONDecoder().decode(CharmResponse.self, from: data)
-//		return parsed
-		fatalError()
+		//		let url = AmuletBaseURL.url.appendingPathComponent(".json/")
+		//		let (data, _) = try await URLSession.shared
+		//			.data(from: url)
+		//		let parsed = try JSONDecoder().decode(CharmResponse.self, from: data)
+		//		return parsed
+		fatalError("Live client is not implemented")
 	}
 }
 

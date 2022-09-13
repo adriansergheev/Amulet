@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Shared
 
 final class SettingsViewModel: ObservableObject {
 

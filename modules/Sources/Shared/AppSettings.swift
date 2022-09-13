@@ -1,16 +1,8 @@
-//
-//  AppState.swift
-//  Amulet
-//
-//  Created by Andrian Sergheev on 2020-03-27.
-//  Copyright © 2020 Andrian Sergheev. All rights reserved.
-//
-
 import Foundation
 import Combine
 import NotificationCenter
 
-enum NotificationTime: String, CaseIterable {
+public enum NotificationTime: String, CaseIterable {
 	
 	case morning
 	case noon
@@ -30,9 +22,9 @@ enum NotificationTime: String, CaseIterable {
 
 final public class AppSettings: ObservableObject {
 	
-	@Published var notificationsEnabled: Bool = false
+	@Published public var notificationsEnabled: Bool = false
 	
-	@Published var notificationReceivingTimeIndex: Int = 0 {
+	@Published public var notificationReceivingTimeIndex: Int = 0 {
 		didSet {
 			notificationReceivingTime = NotificationTime
 				.allCases[self.notificationReceivingTimeIndex]
@@ -56,7 +48,7 @@ final public class AppSettings: ObservableObject {
 	
 	// MARK: - Local notifications
 	
-	func permissions(completion: @escaping (Bool) -> Void) {
+	public func permissions(completion: @escaping (Bool) -> Void) {
 		let notificationCenter = UNUserNotificationCenter.current()
 		notificationCenter.requestAuthorization(options: [.badge, .sound, .alert]) { granted, _ in
 			completion(granted)

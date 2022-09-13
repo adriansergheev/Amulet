@@ -8,9 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		04B3BC79243487440009D83D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04B3BC78243487440009D83D /* Images.xcassets */; };
-		04CDECA228CDE8DF0076B759 /* Modules in Frameworks */ = {isa = PBXBuildFile; productRef = 04CDECA128CDE8DF0076B759 /* Modules */; };
 		04E320A92427603E008D1104 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E320A82427603E008D1104 /* App.swift */; };
 		04E320B524276042008D1104 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04E320B324276042008D1104 /* LaunchScreen.storyboard */; };
+		04E539AE28D0759100564EFC /* Views in Frameworks */ = {isa = PBXBuildFile; productRef = 04E539AD28D0759100564EFC /* Views */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -40,7 +40,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				04CDECA228CDE8DF0076B759 /* Modules in Frameworks */,
+				04E539AE28D0759100564EFC /* Views in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -117,7 +117,7 @@
 			);
 			name = Amulet;
 			packageProductDependencies = (
-				04CDECA128CDE8DF0076B759 /* Modules */,
+				04E539AD28D0759100564EFC /* Views */,
 			);
 			productName = Amulet;
 			productReference = 04E320A52427603E008D1104 /* DailyCharm.app */;
@@ -379,9 +379,9 @@
 /* End XCConfigurationList section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		04CDECA128CDE8DF0076B759 /* Modules */ = {
+		04E539AD28D0759100564EFC /* Views */ = {
 			isa = XCSwiftPackageProductDependency;
-			productName = Modules;
+			productName = Views;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

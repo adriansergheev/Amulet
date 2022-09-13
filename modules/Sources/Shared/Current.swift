@@ -1,8 +1,8 @@
 import Foundation
 
-var Current = AppEnvironment()
+public var Current = AppEnvironment()
 
-struct AppEnvironment {
+public struct AppEnvironment {
 	public let supportEmail: String = "greenblackstudio@icloud.com"
 	public let supportWebsite: String = "https://twitter.com/adriansergheev"
 	

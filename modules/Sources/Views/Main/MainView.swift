@@ -2,6 +2,7 @@ import SwiftUI
 import Model
 import ComposableArchitecture
 import ApiClient
+import Shared
 
 public struct AppReducer: ReducerProtocol {
 	public enum State: Equatable {
@@ -27,7 +28,7 @@ public struct AppReducer: ReducerProtocol {
 			state = .loading
 			return .task {
 				do {
-					try await Task.sleep(nanoseconds: NSEC_PER_SEC / 2)
+					try await Task.sleep(nanoseconds: NSEC_PER_SEC / 2) // 0.5 sec delay
 					let result = try await amuletClient.getCharms()
 					return .onCharmsLoaded(result.charm	, result.charm.randomElement()!)
 				} catch let error {
@@ -47,9 +48,7 @@ public struct AppReducer: ReducerProtocol {
 
 public struct MainView: View {
 	@EnvironmentObject var settings: AppSettings
-	// animation
 	@State var textAnimationScale: CGFloat = 1
-	//modal
 	@State var isSettingsModalPresented = false
 	@State var isDetailModalPrestented = false
 	

@@ -1,5 +1,6 @@
-import Modules
+import Views
 import SwiftUI
+import Shared
 
 @main
 struct Amulet: App {

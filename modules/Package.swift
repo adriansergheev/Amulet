@@ -7,10 +7,7 @@ let package = Package(
 	name: "Modules",
 	platforms: [.iOS(.v15)],
 	products: [
-		.library(
-			name: "Modules",
-			targets: ["Modules"]
-		),
+		.library(name: "Views", targets: ["Views"]),
 	],
 	dependencies: [
 		.package(
@@ -27,19 +24,23 @@ let package = Package(
 			],
 			resources: [.copy("Resources/AmuletMock.json")]
 		),
+		.target(name: "Extensions"),
 		.target(name: "Model"),
 		.target(
-			name: "Modules",
+			name: "Views",
 			dependencies: [
 				"ApiClient",
+				"Extensions",
 				"Model",
+				"Shared",
 				.product(name: "ComposableArchitecture", package: "swift-composable-architecture")
 			]
 		),
 		.testTarget(
-			name: "ModulesTests",
-			dependencies: ["Modules"]
+			name: "ViewsTests",
+			dependencies: ["Views"]
 		),
+		.target(name: "Shared")
 	]
 )
 

@@ -7,6 +7,7 @@
 //
 
 import SwiftUI
+import Shared
 
 struct IntentionView: View {
 
