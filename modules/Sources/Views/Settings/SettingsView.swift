@@ -1,16 +1,40 @@
 import SwiftUI
 import Shared
 
+
+struct SettingCellView: View {
+	let view: AnyView
+	init(_ view: AnyView) {
+		self.view = view
+	}
+	var body: some View {
+		ZStack {
+			VStack(alignment: .leading, spacing: 8) {
+				view
+				Divider()
+					.background(Color.black)
+					.frame(height: 2)
+			}
+		}
+	}
+}
+
+
 struct SettingsView: View {
-	
-	@ObservedObject var viewModel: SettingsViewModel
-	@Environment (\.modalModeSettings) var modalMode
+	@EnvironmentObject var settings: AppSettings
 	@State var isIntentModalPresented = false
+	var onCloseTap: (() -> Void)?
+	
+	init(onCloseTap: (() -> Void)?) {
+		self.onCloseTap = onCloseTap
+	}
 	
 	var body: some View {
 		ZStack {
 			GradientView(gradientColors: [Color.purple, Color.white])
-			CancelButtonView({ self.modalMode.wrappedValue.toggle() })
+			CancelButtonView {
+				self.onCloseTap?()
+			}
 			VStack(alignment: .leading, spacing: 16) {
 				Text("Preferences")
 					.font(.title)
@@ -51,13 +75,13 @@ struct SettingsView: View {
 								.eraseToAnyView()
 							)
 							SettingCellView(
-								Picker(selection: $viewModel.settings.notificationReceivingTimeIndex, label: Text("Push notification time")) {
+								Picker(selection: self.$settings.notificationReceivingTimeIndex, label: Text("Push notification time")) {
 									ForEach(0 ..< NotificationTime.allCases.count) { time in
 										Text("\(NotificationTime.allCases[time].rawValue)")
 									}
 								}
 									.pickerStyle(SegmentedPickerStyle())
-									.disabled(!viewModel.settings.notificationsEnabled)
+									.disabled(!self.settings.notificationsEnabled)
 									.eraseToAnyView()
 							)
 							SettingCellView(
@@ -102,7 +126,13 @@ struct SettingsView: View {
 			.animation(nil)
 			.padding(EdgeInsets(top: 64, leading: 16, bottom: 16, trailing: 16))
 		}
-		.onAppear { self.viewModel.onAppear() }
+		.onAppear {
+			self.settings.permissions { granted in
+				DispatchQueue.main.async {
+					self.settings.notificationsEnabled = granted
+				}
+			}
+		}
 	}
 	
 	private func onOpenSystemSettings() {
@@ -126,7 +156,7 @@ struct SettingsView: View {
 #if DEBUG
 struct SettingsView_Previews: PreviewProvider {
 	static var previews: some View {
-		SettingsView(viewModel: SettingsViewModel(AppSettings()))
+		SettingsView(onCloseTap: nil)
 	}
 }
 #endif

@@ -9,6 +9,7 @@ public struct AppReducer: ReducerProtocol {
 	public struct State: Equatable {
 		var charms: CharmsState
 		var isDetailPresented: Bool
+		var isSettingsPresented: Bool
 		
 		public enum CharmsState: Equatable {
 			case loading
@@ -18,10 +19,12 @@ public struct AppReducer: ReducerProtocol {
 		
 		public init(
 			state: CharmsState,
-			isDetailPresented: Bool = false
+			isDetailPresented: Bool = false,
+			isSettingsPresented: Bool = false
 		) {
 			self.charms = state
 			self.isDetailPresented = isDetailPresented
+			self.isSettingsPresented = isSettingsPresented
 		}
 	}
 	
@@ -30,6 +33,7 @@ public struct AppReducer: ReducerProtocol {
 		case onCharmsLoaded([Charm], _ todays: Charm)
 		case onLoadFailed(NSError)
 		case setDetailSheet(isPresented: Bool)
+		case setSettingsSheet(isPresented: Bool)
 	}
 	
 	@Dependency(\.mainQueue) var mainQueue
@@ -61,6 +65,9 @@ public struct AppReducer: ReducerProtocol {
 		case let .setDetailSheet(isPresented: isPresented):
 			state.isDetailPresented = isPresented
 			return .none
+		case let .setSettingsSheet(isPresented: isPresented):
+			state.isSettingsPresented = isPresented
+			return .none
 		}
 	}
 }
@@ -69,7 +76,6 @@ public struct AppReducer: ReducerProtocol {
 public struct MainView: View {
 	@EnvironmentObject var settings: AppSettings
 	@State var textAnimationScale: CGFloat = 1
-	@State var isSettingsModalPresented = false
 	
 	let store: StoreOf<AppReducer>
 	@ObservedObject var viewStore: ViewStoreOf<AppReducer>
@@ -80,67 +86,67 @@ public struct MainView: View {
 	}
 	
 	public var body: some View {
-//		WithViewStore(self.store) { viewStore in
-			ZStack {
-				GradientView()
-				Group {
-					switch viewStore.charms {
-					case .loaded(let charms, let todaysCharm):
-						Group {
-							header()
-							main(todaysCharm)
-							footer(charms)
-						}
-						.eraseToAnyView()
-					case .loading:
-						Group {
-							header()
-								.disabled(true)
-								.opacity(0.1)
-							Spinner(isAnimating: true, style: .large)
-							footer([])
-								.disabled(true)
-								.opacity(0.1)
-						}
-						.eraseToAnyView()
-					case .error:
-						Group {
-							header()
-								.disabled(false)
-							Text("Error loading charms ;(")
-								.lineLimit(nil)
-								.foregroundColor(.white)
-								.padding(16)
-								.multilineTextAlignment(.center)
-								.frame(minWidth: 120, alignment: .center)
-							footer([])
-								.disabled(true)
-								.opacity(0.1)
-						}
-						.eraseToAnyView()
+		ZStack {
+			GradientView()
+			Group {
+				switch viewStore.charms {
+				case .loaded(let charms, let todaysCharm):
+					Group {
+						header()
+						main(todaysCharm)
+						footer(charms)
 					}
+					.eraseToAnyView()
+				case .loading:
+					Group {
+						header()
+							.disabled(true)
+							.opacity(0.1)
+						Spinner(isAnimating: true, style: .large)
+						footer([])
+							.disabled(true)
+							.opacity(0.1)
+					}
+					.eraseToAnyView()
+				case .error:
+					Group {
+						header()
+							.disabled(false)
+						Text("Error loading charms ;(")
+							.lineLimit(nil)
+							.foregroundColor(.white)
+							.padding(16)
+							.multilineTextAlignment(.center)
+							.frame(minWidth: 120, alignment: .center)
+						footer([])
+							.disabled(true)
+							.opacity(0.1)
+					}
+					.eraseToAnyView()
 				}
 			}
-			.onAppear { viewStore.send(.onAppear) }
-//		}
+		}
+		.onAppear { viewStore.send(.onAppear) }
 	}
 	private func header() -> some View {
 		VStack {
 			HStack {
 				Spacer()
 				Button(action: {
-					self.isSettingsModalPresented.toggle()
+					viewStore.send(.setSettingsSheet(isPresented: true))
 				}, label: {
 					Image(systemName: "ellipsis.circle")
 						.resizable()
 						.frame(width: 20, height: 20, alignment: .center)
 				})
-				.buttonStyle(NeumorphicButtonStyle.init(colorScheme: .light))
+				.buttonStyle(NeumorphicButtonStyle(colorScheme: .light))
 				.padding(.trailing)
 			}
-			.sheet(isPresented: $isSettingsModalPresented) {
-				SettingsView(viewModel: SettingsViewModel(self.settings))
-					.environment(\.modalModeSettings, self.$isSettingsModalPresented)
+			.sheet(isPresented: viewStore.binding(
+				get: \.isSettingsPresented,
+				send: AppReducer.Action.setSettingsSheet(isPresented:))
+			) {
+				SettingsView(onCloseTap: { viewStore.send(.setSettingsSheet(isPresented: false))})
 					.environmentObject(self.settings)
 			}
 			Spacer()
@@ -192,7 +198,7 @@ public struct MainView: View {
 				) {
 					DetailView(
 						charms: charms,
-						onCloseTapped: { viewStore.send(.setDetailSheet(isPresented: false)) }
+						onCloseTap: { viewStore.send(.setDetailSheet(isPresented: false)) }
 					)
 				}
 				Spacer()

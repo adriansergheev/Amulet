@@ -25,21 +25,21 @@ struct DetailCellView: View {
 struct DetailView: View {
 	@State private var isSharePresented = false
 	@State var charms: [Charm]
-	var onCloseTapped: (() -> Void)?
+	var onCloseTap: (() -> Void)?
 	
 	public init(
 		charms: [Charm],
-		onCloseTapped: (() -> Void)?
+		onCloseTap: (() -> Void)?
 	) {
 		self.charms = charms
 			.filter { ($0.date?.isPastDate) ?? false }
-		self.onCloseTapped = onCloseTapped
+		self.onCloseTap = onCloseTap
 	}
 	
 	var body: some View {
 		ZStack {
 			GradientView(gradientColors: [Color.white, Color.pink, Color.purple])
-			CancelButtonView { self.onCloseTapped?() }
+			CancelButtonView { self.onCloseTap?() }
 			VStack(alignment: .leading, spacing: 32) {
 				Spacer(minLength: 60)
 				Text("It's so lovely to\nsee you.")
@@ -89,7 +89,7 @@ public let demoCharmsText: [String] = [
 ]
 struct DetailView_Previews: PreviewProvider {
 	static var previews: some View {
-		DetailView(charms: demoCharms, onCloseTapped: nil)
+		DetailView(charms: demoCharms, onCloseTap: nil)
 	}
 }
 #endif
