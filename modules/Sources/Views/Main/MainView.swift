@@ -51,7 +51,7 @@ public struct AppReducer: ReducerProtocol {
 				do {
 					try await self.mainQueue.sleep(for: 1)
 					let result = try await amuletClient.getCharms()
-					return .onCharmsLoaded(result.charm	, result.charm.randomElement()!)
+					return .onCharmsLoaded(result.charm	, result.charm.last!)
 				} catch let error {
 					return .onLoadFailed(error as NSError)
 				}

@@ -33,20 +33,10 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "04E320BA24276042008D1104"
-               BuildableName = "AmuletTests.xctest"
-               BlueprintName = "AmuletTests"
-               ReferencedContainer = "container:Amulet.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "04E320C524276042008D1104"
-               BuildableName = "AmuletUITests.xctest"
-               BlueprintName = "AmuletUITests"
-               ReferencedContainer = "container:Amulet.xcodeproj">
+               BlueprintIdentifier = "ViewsTests"
+               BuildableName = "ViewsTests"
+               BlueprintName = "ViewsTests"
+               ReferencedContainer = "container:Modules">
             </BuildableReference>
          </TestableReference>
       </Testables>

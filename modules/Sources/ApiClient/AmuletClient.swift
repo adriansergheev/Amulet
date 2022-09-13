@@ -47,3 +47,10 @@ extension AmuletClient {
 		return parsed
 	}
 }
+
+extension AmuletClient {
+	public static let failing = Self {
+		throw AmuletError.invalidResponse
+	}
+}
+
