@@ -166,7 +166,7 @@ public struct MainView: View {
 				.buttonStyle(NeumorphicButtonStyle(colorScheme: .light))
 				.padding(.leading)
 				.sheet(isPresented: $isDetailModalPrestented) {
-					DetailView(viewModel: DetailViewModel(charms: charms))
+					DetailView(charms: charms)
 						.environment(\.modalModeDetail, self.$isDetailModalPrestented)
 				}
 				Spacer()

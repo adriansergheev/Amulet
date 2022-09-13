@@ -28,8 +28,10 @@ struct GradientView: View {
 	}
 }
 
+#if DEBUG
 struct GradientView_Previews: PreviewProvider {
 	static var previews: some View {
 		GradientView()
 	}
 }
+#endif

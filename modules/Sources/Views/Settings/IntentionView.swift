@@ -1,11 +1,3 @@
-//
-//  IntentionView.swift
-//  Amulet
-//
-//  Created by Andrian Sergheev on 2020-03-30.
-//  Copyright © 2020 Andrian Sergheev. All rights reserved.
-//
-
 import SwiftUI
 import Shared
 
