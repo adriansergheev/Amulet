@@ -1,6 +1,5 @@
 import Foundation
 import SwiftUI
-import Model
 
 public struct AmuletFont {
 	static public var defaultFont: (CGFloat) -> Font = { Font.system(size: $0) }
